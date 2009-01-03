@@ -10,7 +10,7 @@ public class Writetxt {
 	String csvpath=System.getProperty("user.dir")+"\\csv\\";
 	ArrayList<String> csv;
 	
-	
+	///
 	////---------wrtiiting to files and manipulate them-------
 	
 	public void WriteUniqWifi() throws IOException

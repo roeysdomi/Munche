@@ -12,7 +12,7 @@ public class Read {
 	String loc;
 	String csvfilename;
 	
-	////-----read and convert function---
+	/////-----read and convert function---
 	
 	public ArrayList<String> converttocsv() throws FileNotFoundException
 	{
