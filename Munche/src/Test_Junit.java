@@ -14,7 +14,7 @@ class Test_Junit {
 	
 	@Test
 	public  void Checkfiles() 
-	{ 
+	{ /* */
 		System.out.println("=====================CHECK-FILES-TEST==================");
 	     System.out.println();
 	     System.out.println();
