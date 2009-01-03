@@ -66,7 +66,7 @@ public class Writetxt {
 			{
 				for(int j=0;j<temp.size();j++)
 				{   Wifi wifi2=new Wifi(temp.get(j));
-					if(wifi1.Comperator(wifi1.getLat(),wifi2.getLat())&&wifi1.Comperator(wifi1.getLot(),wifi2.getLot())&&wifi1.Comperator(wifi1.getHight(),wifi2.getHight())&&j!=i)
+					if(wifi1.Comperator(wifi1.loc.getLat(),wifi2.loc.getLat())&&wifi1.Comperator(wifi1.loc.getLot(),wifi2.loc.getLot())&&wifi1.Comperator(wifi1.loc.getHight(),wifi2.loc.getHight())&&j!=i)
 					{ temp.set(j,"1") ;  }
 					
 				}
@@ -291,7 +291,7 @@ public class Writetxt {
 	    	{   if(count<=10)
 	    		{ Wifi w=new Wifi(csv2.get(count));
 	    		  
-	    		writer.write(w.getMac()+","+w.getId()+","+w.getTime()+","+w.getSignal()+","+w.getLat()+","+w.getLot()+","+w.hight+",");
+	    		writer.write(w.getMac()+","+w.getId()+","+w.getTime()+","+w.getSignal()+","+w.getLat()+","+w.getLot()+","+w.getHight()+",");
 	    		}
 	    	}
 				writer.write(System.lineSeparator());

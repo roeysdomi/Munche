@@ -5,9 +5,9 @@ public class Wifi {
 	public String id;
 	public String time;
 	public String signal;
-	public String lot;
-	public String lat;
-	public String hight;
+	Location loc=new Location();
+	
+   
 	/////---------Junit helper----
 	public static Boolean failtesting=true;
 	////---------wifi :that create object check contant and comprator ----
@@ -19,19 +19,20 @@ public class Wifi {
 	{   if(!g.equals("1"))
 		{
 		String []words=g.split(",");
-		if(words.length<9) {failtesting=false;}
+		if(words.length<9) {failtesting=false;System.out.println("contant error");}
 		
 		this.mac=words[0];
 		this.id=words[1];
 		this.time=words[3];
 		this.signal=words[5];
-		this.lat=(words[6]);		
-		this.lot=(words[7]);
-		this.hight=(words[8]);	
-		
-		if(!isNumeric(lat)) {failtesting=false;System.out.println(lat);return;}
-		if(!isNumeric(lot)) {failtesting=false;System.out.println(lot);return;}
-		if(!isNumeric(hight)) {failtesting=false;System.out.println(hight);return;}
+		this.loc.lat=(words[6]);		
+		this.loc.lot=(words[7]);
+		this.loc.hight=(words[8]);	
+		if(!isNumeric(signal)) {failtesting=false;System.out.println("Error Signal look :"+signal);return;}
+		if(!isDate(time)) {{failtesting=false;System.out.println("1Error time look :"+time);return;}}
+		if(!isNumeric(loc.getLat())) {failtesting=false;System.out.println("Error Lat look :"+loc.getLat());return;}
+		if(!isNumeric(loc.getLot())) {failtesting=false;System.out.println("Error Lot look :"+loc.getLot());return;}
+		if(!isNumeric(loc.getHight())) {failtesting=false;System.out.println("Error hight look :"+loc.getHight());return;}
 
 		}
 	}
@@ -39,36 +40,38 @@ public class Wifi {
 	{   if(!g.equals("1"))
 		{
 		String []words=g.split(",");
-		if(words.length<7) {failtesting=false;}
+		if(words.length<7) {failtesting=false;System.out.println("contant error");}
 		this.mac=words[0];
 		this.id=words[1];
 		this.time=words[2];
 		this.signal=words[3];
-		this.lat=(words[4]);		
-		this.lot=(words[5]);
-		this.hight=(words[6]);	
-		
-		if(!isNumeric(lat)) {failtesting=false;System.out.println(lat);return;}
-		if(!isNumeric(lot)) {failtesting=false;System.out.println(lot);return;}
-		if(!isNumeric(hight)) {failtesting=false;System.out.println(hight);return;}
+		this.loc.lat=(words[4]);		
+		this.loc.lot=(words[5]);
+		this.loc.hight=(words[6]);	
+		if(!isNumeric(signal)) {failtesting=false;System.out.println("Error Signal look :"+signal);return;}
+		if(!isDate(time)) {{failtesting=false;System.out.println("Error time look :"+time);return;}}
+		if(!isNumeric(loc.getLat())) {failtesting=false;System.out.println("Error Lat look :"+loc.getLat());return;}
+		if(!isNumeric(loc.getLot())) {failtesting=false;System.out.println("Error Lot look :"+loc.getLot());return;}
+		if(!isNumeric(loc.getHight())) {failtesting=false;System.out.println("Error hight look :"+loc.getHight());return;}
 		}
 	}
 	public void Wifiorgenized(String g)
 	{   if(!g.equals("1"))
 		{
 		String []words=g.split(",");
-		if(words.length<7) {failtesting=false;}
+		if(words.length<7) {failtesting=false;System.out.println("contant error");}
 		this.mac=words[1];
 		this.id=words[2];
 		this.time=words[3];
 		this.signal=words[4];
-		this.lat=(words[5]);		
-		this.lot=(words[6]);
-		this.hight=(words[7]);	
-		
-		if(!isNumeric(lat)) {failtesting=false;System.out.println(lat);return;}
-		if(!isNumeric(lot)) {failtesting=false;System.out.println(lot);return;}
-		if(!isNumeric(hight)) {failtesting=false;System.out.println(hight);return;}
+		this.loc.lat=(words[5]);		
+		this.loc.lot=(words[6]);
+		this.loc.hight=(words[7]);	
+		if(!isNumeric(signal)) {failtesting=false;System.out.println("Error Signal look :"+signal);return;}
+		if(!isDate(time)) {{failtesting=false;System.out.println("Error time look :"+time);return;}}
+		if(!isNumeric(loc.getLat())) {failtesting=false;System.out.println("Error Lat look :"+loc.getLat());return;}
+		if(!isNumeric(loc.getLot())) {failtesting=false;System.out.println("Error Lot look :"+loc.getLot());return;}
+		if(!isNumeric(loc.getHight())) {failtesting=false;System.out.println("Error hight look :"+loc.getHight());return;}
 		}
 	}
 	public boolean Comperator(String wifi1,String wifi2)
@@ -80,12 +83,23 @@ public class Wifi {
 	
 	 	
 	}
-	public boolean isNumeric(String s) 
+	public static boolean isNumeric(String s) 
 	{  
 	    return s != null && s.matches("[-+]?\\d*\\.?\\d+");  
 	   
 	}  
-/////---------get and set------------
+   
+    public static boolean isDate(String s)
+    { boolean a=true;
+      if(!(s.contains(":")&&(s.contains("-")||s.contains("/")))) {return false;}
+      String []check=s.split("-|:|/| ");
+      for(int i=0;i<check.length;i++)
+      {
+    	  if(!isNumeric(check[i])&&!check[i].equals("")) {return false;}
+      }
+    	return a;
+    }
+	/////---------get and set------------
 	public String getWifinum() {
 		return wifinum;
 	}
@@ -134,26 +148,24 @@ public class Wifi {
 	public void setSignal(String signal) {
 		this.signal = signal;
 	}
-	public String getLot() {
-		return lot;
-	}
-	public void setLot(String lot) {
-		this.lot = lot;
-	}
 	public String getLat() {
-		return lat;
+		return loc.lat;
 	}
-	public void setLat(String lat) {
-		this.lat = lat;
+	public void setLat(String loc) {
+		this.loc.setLat( loc);
+	}
+	public String getLot() {
+		return loc.lot;
+	}
+	public void setLot(String loc) {
+		this.loc.lot = loc;
 	}
 	public String getHight() {
-		return hight;
+		return loc.hight;
 	}
-	public void setHight(String hight) {
-		this.hight = hight;
+	public void sethight(String loc) {
+		this.loc.hight = loc;
 	}
-
-
 	
-
 }
+	
