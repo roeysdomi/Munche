@@ -10,7 +10,7 @@ public class Wifi {
 	public String hight;
 	////---------Junit helper----
 	public static Boolean failtesting=true;
-	
+	////---------wifi :that create object check contant and comprator ----
 	public Wifi()
 	{
 		
@@ -85,7 +85,7 @@ public class Wifi {
 	    return s != null && s.matches("[-+]?\\d*\\.?\\d+");  
 	   
 	}  
-
+/////---------get and set------------
 	public String getWifinum() {
 		return wifinum;
 	}
