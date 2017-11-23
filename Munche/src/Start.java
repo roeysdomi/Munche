@@ -7,6 +7,7 @@ public class Start {
 	String path=System.getProperty("user.dir")+"\\";
 	String csvpath=System.getProperty("user.dir")+"\\csv\\";
 	public static int  choose;
+	public static Boolean failtesting=true;
 	
 	
 	
@@ -34,6 +35,7 @@ public class Start {
 
 			        Scanner input=new Scanner(System.in);
 			        choose=input.nextInt();
+			        if(choose!=1&&choose!=3&&choose!=4) {System.out.println("====ERROR WRONG CHOISE===");failtesting=false;return;}
 			        System.out.println("          You choosed : |"+choose+"|");
 			        if(choose==1)
 			        {
@@ -67,6 +69,12 @@ public class Start {
 			        	 System.out.println("First enter the *second* point lot:");
 			        	 input=new Scanner(System.in);
 			        	 filter1.setLot2(input.nextLine());
+			        	 Wifi check=new Wifi();
+			        	 if(check.isNumeric(filter1.getLat1())) {System.out.println("FAIL CHOISE");failtesting=false;return;}
+			        	 if(check.isNumeric(filter1.getLot1())) {System.out.println("FAIL CHOISE");failtesting=false;return;}
+			        	 if(check.isNumeric(filter1.getLat2())) {System.out.println("FAIL CHOISE");failtesting=false;return;}
+			        	 if(check.isNumeric(filter1.getLot2())) {System.out.println("FAIL CHOISE");failtesting=false;return;}
+
 			        	 
 			        }
 			        ////--------הכנת קבצים-----
