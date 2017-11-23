@@ -8,7 +8,9 @@ public class Wifi {
 	public String lot;
 	public String lat;
 	public String hight;
+	////---------Junit helper----
 	public static Boolean failtesting=true;
+	
 	public Wifi()
 	{
 		
@@ -17,7 +19,7 @@ public class Wifi {
 	{   if(!g.equals("1"))
 		{
 		String []words=g.split(",");
-		if(words.length<9) {System.out.println("FAIL CONTANT");failtesting=false;}
+		if(words.length<9) {failtesting=false;}
 		
 		this.mac=words[0];
 		this.id=words[1];
@@ -26,10 +28,10 @@ public class Wifi {
 		this.lat=(words[6]);		
 		this.lot=(words[7]);
 		this.hight=(words[8]);	
-		if(isNumeric(time)) {System.out.println("FAIL CONTANT");failtesting=false;}
-		if(isNumeric(lat)) {System.out.println("FAIL CONTANT");failtesting=false;}
-		if(isNumeric(lot)) {System.out.println("FAIL CONTANT");failtesting=false;}
-		if(isNumeric(hight)) {System.out.println("FAIL CONTANT");failtesting=false;}
+		
+		if(!isNumeric(lat)) {failtesting=false;System.out.println(lat);return;}
+		if(!isNumeric(lot)) {failtesting=false;System.out.println(lot);return;}
+		if(!isNumeric(hight)) {failtesting=false;System.out.println(hight);return;}
 
 		}
 	}
@@ -37,7 +39,7 @@ public class Wifi {
 	{   if(!g.equals("1"))
 		{
 		String []words=g.split(",");
-		if(words.length<7) {System.out.println("FAIL CONTANT");failtesting=false;}
+		if(words.length<7) {failtesting=false;}
 		this.mac=words[0];
 		this.id=words[1];
 		this.time=words[2];
@@ -45,10 +47,28 @@ public class Wifi {
 		this.lat=(words[4]);		
 		this.lot=(words[5]);
 		this.hight=(words[6]);	
-		if(isNumeric(time)) {System.out.println("FAIL CONTANT");failtesting=false;}
-		if(isNumeric(lat)) {System.out.println("FAIL CONTANT");failtesting=false;}
-		if(isNumeric(lot)) {System.out.println("FAIL CONTANT");failtesting=false;}
-		if(isNumeric(hight)) {System.out.println("FAIL CONTANT");failtesting=false;}
+		
+		if(!isNumeric(lat)) {failtesting=false;System.out.println(lat);return;}
+		if(!isNumeric(lot)) {failtesting=false;System.out.println(lot);return;}
+		if(!isNumeric(hight)) {failtesting=false;System.out.println(hight);return;}
+		}
+	}
+	public void Wifiorgenized(String g)
+	{   if(!g.equals("1"))
+		{
+		String []words=g.split(",");
+		if(words.length<7) {failtesting=false;}
+		this.mac=words[1];
+		this.id=words[2];
+		this.time=words[3];
+		this.signal=words[4];
+		this.lat=(words[5]);		
+		this.lot=(words[6]);
+		this.hight=(words[7]);	
+		
+		if(!isNumeric(lat)) {failtesting=false;System.out.println(lat);return;}
+		if(!isNumeric(lot)) {failtesting=false;System.out.println(lot);return;}
+		if(!isNumeric(hight)) {failtesting=false;System.out.println(hight);return;}
 		}
 	}
 	public boolean Comperator(String wifi1,String wifi2)
