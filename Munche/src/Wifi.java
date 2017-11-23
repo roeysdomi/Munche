@@ -8,7 +8,7 @@ public class Wifi {
 	public String lot;
 	public String lat;
 	public String hight;
-	public static Boolean failtesting;
+	public static Boolean failtesting=true;
 	public Wifi()
 	{
 		
@@ -18,6 +18,7 @@ public class Wifi {
 		{
 		String []words=g.split(",");
 		if(words.length<9) {System.out.println("FAIL CONTANT");failtesting=false;}
+		
 		this.mac=words[0];
 		this.id=words[1];
 		this.time=words[3];
@@ -25,12 +26,18 @@ public class Wifi {
 		this.lat=(words[6]);		
 		this.lot=(words[7]);
 		this.hight=(words[8]);	
+		if(isNumeric(time)) {System.out.println("FAIL CONTANT");failtesting=false;}
+		if(isNumeric(lat)) {System.out.println("FAIL CONTANT");failtesting=false;}
+		if(isNumeric(lot)) {System.out.println("FAIL CONTANT");failtesting=false;}
+		if(isNumeric(hight)) {System.out.println("FAIL CONTANT");failtesting=false;}
+
 		}
 	}
 	public void Wififilterd(String g)
 	{   if(!g.equals("1"))
 		{
 		String []words=g.split(",");
+		if(words.length<7) {System.out.println("FAIL CONTANT");failtesting=false;}
 		this.mac=words[0];
 		this.id=words[1];
 		this.time=words[2];
@@ -38,6 +45,10 @@ public class Wifi {
 		this.lat=(words[4]);		
 		this.lot=(words[5]);
 		this.hight=(words[6]);	
+		if(isNumeric(time)) {System.out.println("FAIL CONTANT");failtesting=false;}
+		if(isNumeric(lat)) {System.out.println("FAIL CONTANT");failtesting=false;}
+		if(isNumeric(lot)) {System.out.println("FAIL CONTANT");failtesting=false;}
+		if(isNumeric(hight)) {System.out.println("FAIL CONTANT");failtesting=false;}
 		}
 	}
 	public boolean Comperator(String wifi1,String wifi2)
@@ -49,7 +60,11 @@ public class Wifi {
 	
 	 	
 	}
-
+	public boolean isNumeric(String s) 
+	{  
+	    return s != null && s.matches("[-+]?\\d*\\.?\\d+");  
+	   
+	}  
 
 	public String getWifinum() {
 		return wifinum;
