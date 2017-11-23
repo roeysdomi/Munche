@@ -57,6 +57,14 @@ class 	JunitTest {
        assertTrue(check.failtesting);
 		
 	}
+	public void CheckChoise() throws IOException 
+	{
+		Start run=new Start();
+		run.Start();
+	   
+       assertTrue(run.failtesting);
+		
+	}
     
     
 }
