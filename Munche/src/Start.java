@@ -47,11 +47,26 @@ public class Start {
 			        	 
 			        }
 			        if(choose==3)
-			        {    System.out.println("============================================");
+			        {   System.out.println("============================================");
 
-			        	System.out.println("Write TIME or part of the TIME: (for example:16:26) ");
-			        	 input=new Scanner(System.in);
-			        	 filter1.setTime(input.nextLine());
+		        	 System.out.println("First enter the *first* point HOUR:");
+		        	 input=new Scanner(System.in);
+		        	 filter1.setHours1(input.nextLine());
+		        	 System.out.println("First enter the *first* point Mintues:");
+		        	 input=new Scanner(System.in);
+		        	 filter1.setMinutes1(input.nextLine());
+		        	 System.out.println("First enter the *Second* point HOUR:");
+		        	 input=new Scanner(System.in);
+		        	 filter1.setHours2(input.nextLine());
+		        	 System.out.println("First enter the *second* point Mintues:");
+		        	 input=new Scanner(System.in);
+		        	 filter1.setMinutes2(input.nextLine());
+		        	 Wifi check=new Wifi();
+		        	 if(!check.isNumeric(filter1.getHours1())) {System.out.println("FAIL CHOISE");failtesting=false;return;}
+		        	 if(!check.isNumeric(filter1.getMinutes1())) {System.out.println("FAIL CHOISE");failtesting=false;return;}
+		        	 if(!check.isNumeric(filter1.getHours2())) {System.out.println("FAIL CHOISE");failtesting=false;return;}
+		        	 if(!check.isNumeric(filter1.getMinutes2())) {System.out.println("FAIL CHOISE");failtesting=false;return;}
+
 			        	 
 			        }
 			        if(choose==4)
@@ -70,14 +85,15 @@ public class Start {
 			        	 input=new Scanner(System.in);
 			        	 filter1.setLot2(input.nextLine());
 			        	 Wifi check=new Wifi();
-			        	 if(check.isNumeric(filter1.getLat1())) {System.out.println("FAIL CHOISE");failtesting=false;return;}
-			        	 if(check.isNumeric(filter1.getLot1())) {System.out.println("FAIL CHOISE");failtesting=false;return;}
-			        	 if(check.isNumeric(filter1.getLat2())) {System.out.println("FAIL CHOISE");failtesting=false;return;}
-			        	 if(check.isNumeric(filter1.getLot2())) {System.out.println("FAIL CHOISE");failtesting=false;return;}
+			        	 if(!check.isNumeric(filter1.getLat1())) {System.out.println("FAIL CHOISE");failtesting=false;return;}
+			        	 if(!check.isNumeric(filter1.getLot1())) {System.out.println("FAIL CHOISE");failtesting=false;return;}
+			        	 if(!check.isNumeric(filter1.getLat2())) {System.out.println("FAIL CHOISE");failtesting=false;return;}
+			        	 if(!check.isNumeric(filter1.getLot2())) {System.out.println("FAIL CHOISE");failtesting=false;return;}
 
 			        	 
 			        }
 			        ////--------הכנת קבצים-----
+			        System.out.println("---STARTING PROCCESS-WAIT FOR THE LOADING BAR----");
 			        Read readtext1=new Read();
 			        readtext1.setCsvfilename("test1");
 			        readtext1.convertcsvtotxt();
