@@ -13,6 +13,8 @@ public class test {
 		Start run=new Start();
 		run.Start();
 		//System.out.println(text1csv);
+		//Writetxt run=new Writetxt();
+		//run.Writetext1();
 		
 		
 		

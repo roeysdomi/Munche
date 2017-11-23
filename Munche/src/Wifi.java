@@ -8,7 +8,7 @@ public class Wifi {
 	public String lot;
 	public String lat;
 	public String hight;
-	
+	public static Boolean failtesting;
 	public Wifi()
 	{
 		
@@ -17,6 +17,7 @@ public class Wifi {
 	{   if(!g.equals("1"))
 		{
 		String []words=g.split(",");
+		if(words.length<9) {System.out.println("FAIL CONTANT");failtesting=false;}
 		this.mac=words[0];
 		this.id=words[1];
 		this.time=words[3];

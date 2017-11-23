@@ -16,14 +16,12 @@ public class Sort {
       
 	     for(int i=0;i<test.size();i++)
 	     {
-	    	
-	    	 String[] words1=test.get(i).split(",");
-	    	 int max=Integer.valueOf(words1[5]);
+	    	 Wifi wifi1=new Wifi(test.get(i));
+	    	 int max=Integer.valueOf(wifi1.getSignal());
 	    	 for(int j=0;j<test.size();j++)
-	    	 {   
+	    	 {   Wifi wifi2=new Wifi(test.get(j));
 	    		 String temp=test.get(i);
-	    		 String[]words2=test.get(j).split(",");
-	    		 int currect=Integer.valueOf(words2[5]);
+	    		 int currect=Integer.valueOf(wifi2.getSignal());
 	    		 
 
 	    		 if(currect>max){test.set(i,test.get(j));test.set(j,temp);max=currect;}
