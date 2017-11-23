@@ -13,7 +13,12 @@ public class Filter {
 	public  String  lat2;
 	public  String lot2;
 	public  String id;
-	public  String time;
+	public  String hours1;
+	public  String hours2;
+	public  String minutes1;
+	public  String minutes2;
+
+
 	
 	public void filterID() throws IOException
 	{   Filterfunc a1=new Filterfunc();
@@ -48,7 +53,8 @@ public class Filter {
 		sc.close();
 		writer.close();
 	}
-	public void filterTime() throws IOException
+	
+public void filterTime() throws IOException
 	{   Filterfunc a1=new Filterfunc();
 		///---------write to---------
 
@@ -62,45 +68,83 @@ public class Filter {
 		Scanner sc=new Scanner(file1);
 		while(sc.hasNextLine())
 		{   String g=sc.nextLine();
-
-			if(g.contains(time)&&(!g.contains("WigleWifi"))&&(!g.contains("CurrentLatitude"))&&!g.equals(","))
-			{   
-				String[] words=g.split(",");
-				int rows=Integer.valueOf(words[0]);
-				int counter=0;
-				if(rows>=10){rows=70;}
-				if(rows<10){rows=rows*7;}
-				for(int i=0;i<rows;i++)
-				{
-					
-					writer.write(words[i+1]+",");counter++;
-					if(counter==7){writer.write(System.lineSeparator());counter=0;}				
-					
-				}
+             
+			if((!g.contains("WigleWifi"))&&(!g.contains("CurrentLatitude"))&&!g.equals(","))
+			{     Wifi wifi1=new Wifi();
+			      wifi1.Wifiorgenized(g);
+				if(checkTime(wifi1.getTime()))
+			      {
+						String[] words=g.split(",");
+						int rows=Integer.valueOf(words[0]);
+						int counter=0;
+						if(rows>=10){rows=70;}
+						if(rows<10){rows=rows*7;}
+						for(int i=0;i<rows;i++)
+						{
+							
+							writer.write(words[i+1]+",");counter++;
+							if(counter==7){writer.write(System.lineSeparator());counter=0;}				
+							
+						}
+			      }
+		
 			}
 		}
 		sc.close();
 		writer.close();
 	}
-    public boolean checklocation(String lot3,String lat3)
-    {
-      boolean a=true;
+public boolean checklocation(String lot3,String lat3)
+{
+  boolean a=true;
+  ////------הגדרת משתנים
+  double xlat1=Double.valueOf(lat1);
+  double xlot1=Double.valueOf(lot1);
+  double xlat2=Double.valueOf(lat2);
+  double xlot2=Double.valueOf(lot2);
+  double xlat3=Double.valueOf(lat3);
+  double xlot3=Double.valueOf(lot3);
+  /////--------------בדיקה
+  if((xlat1<=xlat3&&xlat3<=xlat2)||(xlat2<=xlat3&&xlat3<=xlat1)){a=true;}
+  else
+  {return false;};
+  if((xlot1<=xlot3&&xlot3<=xlot2)||(xlot2<=xlot3&&xlot3<=xlot1)){a=true;}
+  else
+  {return false;};
+
+ return a;
+}
+
+    public boolean checkTime(String time)
+    { boolean a=false;
+       String[] firstsplit=time.split(" ");
+       String []secondsplit=firstsplit[1].split(":");
+       int hours3=Integer.valueOf(secondsplit[0]);
+       int minutes3=Integer.valueOf(secondsplit[1]);
+
+
       ////------הגדרת משתנים
-      double xlat1=Double.valueOf(lat1);
-      double xlot1=Double.valueOf(lot1);
-      double xlat2=Double.valueOf(lat2);
-      double xlot2=Double.valueOf(lot2);
-      double xlat3=Double.valueOf(lat3);
-      double xlot3=Double.valueOf(lot3);
+      int Hours1=Integer.valueOf(hours1);
+      int Minutes1=Integer.valueOf(minutes1);
+      int Hours2=Integer.valueOf(hours2);
+      int Minutes2=Integer.valueOf(minutes2);
+      int Hours3=Integer.valueOf(hours3);
+      int Minutes3=Integer.valueOf(minutes3);
       /////--------------בדיקה
-      if((xlat1<=xlat3&&xlat3<=xlat2)||(xlat2<=xlat3&&xlat3<=xlat1)){a=true;}
-      else
-      {return false;};
-      if((xlot1<=xlot3&&xlot3<=xlot2)||(xlot2<=xlot3&&xlot3<=xlot1)){a=true;}
-      else
-      {return false;};
+      if(Hours1<=hours3&&hours3<=Hours2||Hours2<=hours3&&hours3<=Hours1)
+      {
+    	  if(Minutes1<=minutes3&&minutes3<=Minutes2||Minutes2<=minutes3&&minutes3<Minutes1)
+    	  {  return true;  }
+      }
+      if(Hours1==hours3&&hours3==Hours2)
+      {
+    	  if(Minutes1<=minutes3&&minutes3<Minutes2||Minutes2<=minutes3&&minutes3<Minutes1)
+    	  {  return true;  }
+      }
+      
+      
+	return a;
     
-     return a;
+    
     }
     public void filterLocation() throws IOException
 	{   Filterfunc a1=new Filterfunc();
@@ -174,11 +218,37 @@ public class Filter {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getTime() {
-		return time;
+
+	public String getHours1() {
+		return hours1;
 	}
-	public void setTime(String time) {
-		this.time = time;
+
+	public void setHours1(String hours1) {
+		this.hours1 = hours1;
+	}
+
+	public String getHours2() {
+		return hours2;
+	}
+
+	public void setHours2(String hours2) {
+		this.hours2 = hours2;
+	}
+
+	public String getMinutes1() {
+		return minutes1;
+	}
+
+	public void setMinutes1(String minutes1) {
+		this.minutes1 = minutes1;
+	}
+
+	public String getMinutes2() {
+		return minutes2;
+	}
+
+	public void setMinutes2(String minutes2) {
+		this.minutes2 = minutes2;
 	}
 	
 }
