@@ -9,7 +9,7 @@ class Junit_CheckContant {
 	String csvpath=System.getProperty("user.dir")+"\\csv\\";
 	/*מכסה בדיקות עבור כל המחלקות:
 filter,count,filterfunc,read,sort,start,writekml,writetxt.*/
-	////----------הוא מריץ את כל התוכנה מהתחלה ובודק את תקינות התוכן בכולם להסבר המלא תקרא את הקובץ הסבר שהכנו---
+	/////----------הוא מריץ את כל התוכנה מהתחלה ובודק את תקינות התוכן בכולם להסבר המלא תקרא את הקובץ הסבר שהכנו---
 	@Test
 	public void CheckContent() throws IOException 
 	{ 

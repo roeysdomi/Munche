@@ -8,7 +8,7 @@ public class Wifi {
 	public String lot;
 	public String lat;
 	public String hight;
-	////---------Junit helper----
+	/////---------Junit helper----
 	public static Boolean failtesting=true;
 	////---------wifi :that create object check contant and comprator ----
 	public Wifi()

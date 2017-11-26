@@ -13,7 +13,7 @@ import de.micromata.opengis.kml.v_2_2_0.Style;
 public class WriteKml {
 	String path=System.getProperty("user.dir")+"\\";
 	String csvpath=System.getProperty("user.dir")+"\\csv\\";
-	/////-----------create kml function-----
+	////////-----------create kml function-----
 	public void createkml() throws IOException
 	{   Read a1=new Read();
 	    a1.setCsvfilename("filterd");
