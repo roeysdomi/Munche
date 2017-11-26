@@ -11,7 +11,7 @@ public class Writetxt {
 	ArrayList<String> csv;
 	
 	
-	
+	////---------wrtiiting to files and manipulate them-------
 	
 	public void WriteUniqWifi() throws IOException
 	{    
@@ -82,6 +82,7 @@ public class Writetxt {
 	}
 	public void Writefixmac() throws IOException
 	{   ///----------create fixmac-------
+		////--------dosent leave duplicate macs----
 		File file1=new File(path+"fixmac.txt");
 		file1.createNewFile();
 		FileWriter writer=new FileWriter(file1);

@@ -6,7 +6,7 @@ public class Sort {
 	String fileloc;
 	ArrayList<String> csv;
 	
-	
+	///----------sort function--------
 	
 	public ArrayList<String> SortSignal() throws FileNotFoundException
 	{
@@ -37,7 +37,7 @@ public class Sort {
 	}
 
 
-
+//--------set and get---------
 	public String getFileloc() {
 		return fileloc;
 	}

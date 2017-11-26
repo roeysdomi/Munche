@@ -9,8 +9,7 @@ public class Filterfunc {
 	String path=System.getProperty("user.dir")+"\\";
 	String csvpath=System.getProperty("user.dir")+"\\csv\\";
     public static int  choose;
-    //-------Description of the class: write to files function and coverting functions.
-  //-------description is  inside any function as well.---
+ 
 
 		
 	public void convertcsvtotxt(String fileloc) throws IOException
