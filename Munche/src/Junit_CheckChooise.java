@@ -9,7 +9,7 @@ class Junit_CheckChooise {
 	String csvpath=System.getProperty("user.dir")+"\\csv\\";
 	@Test
 	public void CheckChoise() throws IOException 
-	{  /*מכסה את כל המקרים של הכנסת לא תקין*/
+	{  /*מכסה את כל המקרים של הכנסת לא תקין .*/
 		 System.out.println("=====================CHECK-CHOISE-TEST==================");
 	     System.out.println();
 	     System.out.println();

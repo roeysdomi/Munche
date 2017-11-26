@@ -10,7 +10,7 @@ public class Filterfunc {
 	String csvpath=System.getProperty("user.dir")+"\\csv\\";
     public static int  choose;
  
-/////-------function helper for filter-----
+////-------function helper for filter-----
 		
 	public void convertcsvtotxt(String fileloc) throws IOException
 	{ /*  ממיר קובץ סיאססויי למסמך טקסט(צריך להכניס מיקום) בסטרינג.*/
