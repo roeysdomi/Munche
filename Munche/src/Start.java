@@ -100,10 +100,7 @@ public class Start {
 			        readtext1.setLoc(path+"test1.txt");
 			        ArrayList<String> text1csv=readtext1.converttocsv();
 			    	///--------
-                    Sort so=new Sort();
-                    so.setCsv(text1csv);
-                    text1csv=so.SortSignal();
-			         
+                   
 			           
 			       
 			      ////------יצירת יוניק וויפי-------

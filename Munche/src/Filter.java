@@ -18,7 +18,7 @@ public class Filter {
 	public  String minutes1;
 	public  String minutes2;
 
-
+   //-------filter function----------
 	
 	public void filterID() throws IOException
 	{   Filterfunc a1=new Filterfunc();
