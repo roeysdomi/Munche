@@ -131,6 +131,22 @@ public class Wifi {
 	
 	 	
 	}
+	public boolean BigComperator(Wifi wifi1,Wifi wifi2)
+	{ 
+	  
+	  if(
+	     wifi1.getId().equals(wifi2.getId())&&
+	     wifi1.getTime().equals(wifi2.getTime())&&
+	     wifi1.getLat().equals(wifi2.getLat())&&
+	     wifi2.getLot().equals(wifi2.getLot())&&
+	     wifi2.getHight().equals(wifi2.getHight())
+	    )
+	  {return true;}
+	  else 
+		  return false;
+	
+	 	
+	}
 	public static boolean isNumeric(String s) 
 	{  
 	    return s != null && s.matches("[-+]?\\d*\\.?\\d+");  

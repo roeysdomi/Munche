@@ -88,7 +88,8 @@ public class WriteTxt2 {
 			             {if(wifi1.TimeComperator(wifi1, wifi2)) {tempcount.add(ListLiner.get(z));ListLiner.set(z, "1");}};
 			             if(a1.choose==4) 
 			             {if(wifi1.LocComperator(wifi1, wifi2)) {tempcount.add(ListLiner.get(z));ListLiner.set(z, "1");}};
-			      
+			             if(a1.choose==5) 
+			             {if(wifi1.BigComperator(wifi1, wifi2)) {tempcount.add(ListLiner.get(z));ListLiner.set(z, "1");}};
 				
 				 
 			   }

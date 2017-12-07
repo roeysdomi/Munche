@@ -30,12 +30,12 @@ public class Start {
 			        System.out.println("============================================");
 			        System.out.println("    What sort would you like to choose?");
 			        System.out.println();
-			        System.out.println("Press :|1|-for ID,|3|-for TIME,|4|-for LOCATION");
+			        System.out.println("Press :|1|-for ID,|3|-for TIME,|4|-for LOCATION,|5|-All Togther");
 			        System.out.println("============================================");
 
 			        Scanner input=new Scanner(System.in);
 			        choose=input.nextInt();
-			        if(choose!=1&&choose!=3&&choose!=4) {System.out.println("====ERROR WRONG CHOISE===");failtesting=false;return;}
+			        if(choose!=1&&choose!=3&&choose!=4&&choose!=5) {System.out.println("====ERROR WRONG CHOISE===");failtesting=false;return;}
 			        System.out.println("          You choosed : |"+choose+"|");
 			        if(choose==1)
 			        {
@@ -109,10 +109,13 @@ public class Start {
 			       if(choose==3){filter1.filterTime();}
 			       if(choose==4){filter1.filterLocation();}
 			       /////--------יצירת KML-----
+			       if(choose!=5)
+			       {
 			       WriteKml kml=new WriteKml();
 			       
 			       kml.createkml2();
-			       
+			       }
+			       if(choose==5) {System.out.println("Only created orgnized file");}
 			       System.out.println("     ==========================");
 			       System.out.println("              FINSHED!");
 			       System.out.println("     ==========================");
