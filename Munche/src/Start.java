@@ -93,24 +93,16 @@ public class Start {
 			        	 
 			        }
 			        ////--------הכנת קבצים-----
-			        System.out.println("---STARTING PROCCESS-WAIT FOR THE LOADING BAR----");
-			        Read readtext1=new Read();
-			        readtext1.setCsvfilename("test1");
-			        readtext1.convertcsvtotxt();
-			        readtext1.setLoc(path+"test1.txt");
-			        ArrayList<String> text1csv=readtext1.converttocsv();
-			    	////--------
-                   
-			           
-			       
-			      ////------יצירת יוניק וויפי-------
-			       Writetxt writefiles=new Writetxt();
-			      
-			        writefiles.setCsv(text1csv);
-			        writefiles.WriteUniqWifi();
-			       System.out.println("wait...almost done");
-			       ////----------------
-			       writefiles.WriteOrgnized();
+			        WriteTxt2 run=new WriteTxt2();
+			   	 System.out.println("start");
+			   	 run.createTest1List();
+			   	 System.out.println("created test1list");
+
+			   	 
+			   	// run.WriteUniqWifi();
+			   	 System.out.println("created Uniqwifilist");
+			   	 run.WriteOrgnized();
+			   	 System.out.println("finsehd");
 			     
 			       ///-----הפעלת פילטר לפי המיון----
 			       if(choose==1){filter1.filterID();}

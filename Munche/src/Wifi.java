@@ -83,6 +83,54 @@ public class Wifi {
 	
 	 	
 	}
+	public boolean IDComperator(Wifi wifi1,Wifi wifi2)
+	{ 
+	  
+	  if(
+	     wifi1.getId().equals(wifi2.getId())
+	     //wifi1.getTime().equals(wifi2.getTime())&&
+	     //wifi1.getLat().equals(wifi2.getLat())&&
+	     //wifi2.getLot().equals(wifi2.getLot())&&
+	     //wifi2.getHight().equals(wifi2.getHight())
+	    )
+	  {return true;}
+	  else 
+		  return false;
+	
+	 	
+	}
+	public boolean TimeComperator(Wifi wifi1,Wifi wifi2)
+	{ 
+	  
+	  if(
+	    // wifi1.getId().equals(wifi2.getId())
+	     wifi1.getTime().equals(wifi2.getTime())
+	     //wifi1.getLat().equals(wifi2.getLat())&&
+	     //wifi2.getLot().equals(wifi2.getLot())&&
+	     //wifi2.getHight().equals(wifi2.getHight())
+	    )
+	  {return true;}
+	  else 
+		  return false;
+	
+	 	
+	}
+	public boolean LocComperator(Wifi wifi1,Wifi wifi2)
+	{ 
+	  
+	  if(
+	    // wifi1.getId().equals(wifi2.getId())
+	   //  wifi1.getTime().equals(wifi2.getTime())
+	     wifi1.getLat().equals(wifi2.getLat())&&
+	     wifi2.getLot().equals(wifi2.getLot())&&
+	     wifi2.getHight().equals(wifi2.getHight())
+	    )
+	  {return true;}
+	  else 
+		  return false;
+	
+	 	
+	}
 	public static boolean isNumeric(String s) 
 	{  
 	    return s != null && s.matches("[-+]?\\d*\\.?\\d+");  
@@ -165,6 +213,12 @@ public class Wifi {
 	}
 	public void sethight(String loc) {
 		this.loc.hight = loc;
+	}
+	public static Boolean getFailtesting() {
+		return failtesting;
+	}
+	public static void setFailtesting(Boolean failtesting) {
+		Wifi.failtesting = failtesting;
 	}
 	
 }

@@ -33,7 +33,7 @@ public class Read {
 	   
 	    while (sc.hasNextLine()) {
 	         g = sc.nextLine();
-	        if(!(g.contains("SSID")||g.contains("WigleWifi")||g.contains("GSM")||g==null))
+	        if(!(g.contains("SSID")||g.contains("WigleWifi")||g==null))
 	        {
 	          if(!(g.equals(",")))
 	          {

@@ -104,7 +104,7 @@ public class WriteKml {
 		{   Wifi point=new Wifi();
 		    point.Wififilterd(temp.get(i));
 			 ////---------casting
-		   int hight=Integer.valueOf(point.getHight());
+		   double hight=Double.valueOf(point.getHight());
 		   String id=point.getId();
 		   double lat=Double.valueOf(point.getLat());
 		   double lot=Double.valueOf(point.getLot());

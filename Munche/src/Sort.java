@@ -7,7 +7,11 @@ public class Sort {
 	ArrayList<String> csv;
 	
 	////----------sort function--------
-	
+	/**
+	 * 
+	 * @return 
+	 * @throws FileNotFoundException
+	 */
 	public ArrayList<String> SortSignal() throws FileNotFoundException
 	{
 
@@ -24,7 +28,7 @@ public class Sort {
 	    		 int currect=Integer.valueOf(wifi2.getSignal());
 	    		 
 
-	    		 if(currect>max){test.set(i,test.get(j));test.set(j,temp);max=currect;}
+	    		 if(currect<max){test.set(i,test.get(j));test.set(j,temp);max=currect;}
 	    	   
 	    		 
 	    	 }
