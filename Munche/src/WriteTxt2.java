@@ -2,26 +2,40 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class WriteTxt2 {
 	String path=System.getProperty("user.dir")+"\\";
 	String csvpath=System.getProperty("user.dir")+"\\csv\\";
-	public ArrayList<String> ListUniqWifi;
-	public ArrayList<String> ListTest1;
-	public ArrayList<String> ListLiner;
-	public ArrayList<String> tempcount;
-	public ArrayList<String> Sort_tempcount;
-	public ArrayList<String> Fix_tempcount;
 	
+	public ArrayList<Wifi> ListTest1;
+	public ArrayList<Wifi> ListLiner;
+	public ArrayList<Wifi> tempcount;
+	public ArrayList<Wifi> Sort_tempcount;
+	public ArrayList<Wifi> Fix_tempcount;
 	
+	/**
+	 * @The class that incharge  all the procces
+	 * of writing to Arraylist.
+	 * It manipulate them from ,csv file until the orgnized csv file
+	 * whice the the filter class work with.
+	 */
 	
 	public WriteTxt2()
 	{
 		
 	}
 	public void createTest1List() throws IOException
-	{   File file3=new File(path+"test1.csv");
+	{  
+		/** 
+		 *  convert all the csv file to one
+		 * csv file.
+		 * after that he convert the csv file to
+		 * Array list(Wifi element) which will used int the next function.
+		 */
+		
+		File file3=new File(path+"test1.csv");
 		file3.createNewFile();
 		File folder = new File(csvpath);
 		File[] listOfFiles = folder.listFiles();
@@ -53,49 +67,64 @@ public class WriteTxt2 {
         readtext1.convertcsvtotxt();
         readtext1.setLoc(path+"test1.txt");
         
-        ListTest1=readtext1.converttocsv();
-        ListLiner=readtext1.converttocsv();
+        //ListTest1=readtext1.converttocsv();
+       ListLiner=readtext1.converttocsv();
 	}
  	
  	public void Writewifi_liner(int i) throws IOException 
 	{    
-	  if(!ListLiner.get(i).equals("1"))
+ 		/**
+ 		 * The function that create the lines in the of the orgnized csv file.
+ 		 * the function get the choosen line(the one that you want to compare the rest) and compare it to the rest of the lines,once 
+ 		 * its find the same object its add to the list , sort them and clean the duplicate mac addres.
+ 		 * at the end he return fix_temp count list for the orgnized function .
+ 		 * (to write the line of the 10 networks).
+ 		 */
+ 		
+ 		
+	  if(!ListLiner.get(i).getMac().equals("1"))
 	  {  
-		    tempcount=new ArrayList<String>();
-	 		
+		    tempcount=new ArrayList<Wifi>();
+	 		Wifi dead=new Wifi();
+	 		dead.Wifikill("1");
 			///---------csv------
 		    Start a1=new Start();
 		    
 		    //////------big file-----
-		    
+		    tempcount.add(ListLiner.get(i));
 			int size=ListLiner.size();
 			 /////--------------- 
-			Wifi wifi1=new Wifi(ListLiner.get(i));
+			
 			for(int z=i;z<size;z++)
 				 
-			{  if(!ListLiner.get(z).equals("1"))
+			{  if(!ListLiner.get(z).getMac().equals("1")&&i!=z)
 			   {	
-					
-					
-				   
-				 Wifi wifi2=new Wifi(ListLiner.get(z));
-				 
-				 
-				 
-						if(a1.choose==1) 
-			             {if(wifi1.IDComperator(wifi1, wifi2)) {tempcount.add(ListLiner.get(z));ListLiner.set(z, "1");}};
-			             if(a1.choose==3) 
-			             {if(wifi1.TimeComperator(wifi1, wifi2)) {tempcount.add(ListLiner.get(z));ListLiner.set(z, "1");}};
-			             if(a1.choose==4) 
-			             {if(wifi1.LocComperator(wifi1, wifi2)) {tempcount.add(ListLiner.get(z));ListLiner.set(z, "1");}};
-			             if(a1.choose==5) 
-			             {if(wifi1.BigComperator(wifi1, wifi2)) {tempcount.add(ListLiner.get(z));ListLiner.set(z, "1");}};
 				
+					
+					
+				 CompareWifi com=new CompareWifi(ListLiner);
+                    				 
+				      
+				 
+				 if(a1.choose==1) 
+	             {if(com.IDComperator(i, z)) {tempcount.add(ListLiner.get(z));ListLiner.set(z,dead );}};
+	             if(a1.choose==3) 
+	             {if(com.TimeComperator(i, z)) {tempcount.add(ListLiner.get(z));ListLiner.set(z,dead );}};
+	             if(a1.choose==4) 
+	             {if(com.LocComperator(i, z)) {tempcount.add(ListLiner.get(z));ListLiner.set(z,dead );}};
+	             if(a1.choose==6) 
+	             {if(com.MacComperator(i, z)) {tempcount.add(ListLiner.get(z));ListLiner.set(z,dead );}};
+	             if(a1.choose==5) 
+	             {if(com.AllComperator(i, z)) {tempcount.add(ListLiner.get(z));ListLiner.set(z,dead );}};
+	             
+			           
+			           
+			             
+			       
 				 
 			   }
 				
 			}
-			
 			
 			
 			
@@ -105,38 +134,46 @@ public class WriteTxt2 {
 			 ////-----------------
 	
 		     Sort sort=new Sort();
-		     sort.setCsv(tempcount);
-		     Sort_tempcount=new ArrayList<String>();
-		     Fix_tempcount=new ArrayList<String>();
+		     sort.setCsv2(tempcount);
+		     Sort_tempcount=new ArrayList<Wifi>();
+		     Fix_tempcount=new ArrayList<Wifi>();
 			 Sort_tempcount=sort.SortSignal();
 		     ///------------------
-			 Writefixmac();
-			
+			// Fix_tempcount=new ArrayList<Wifi>(Sort_tempcount);
 		     /////--------------------
-		     
+		     //if(a1.choose==6)
+		    Writefixmac();
 		   
 	  }    
 	    
 }
  	public void Writefixmac() throws IOException
-	{   
+	{  
+ 		/**
+ 		 * clean the duplicate mac .
+ 		 * leave only the most strongest mac address.
+ 		 * all of them of course unique
+ 		 */
+	
 		////--------------------
-		ArrayList<String>temp=new ArrayList<>(Sort_tempcount);
+		ArrayList<Wifi>temp=new ArrayList<>(Sort_tempcount);
 		Fix_tempcount=new ArrayList<>();
+		Wifi dead=new Wifi();
+		dead.Wifikill("1");
 		////------------------
 		for(int t=0;t<temp.size();t++)
 		 { 
-			if(!temp.get(t).equals("1"))
+			if(!temp.get(t).getMac().equals("1"))
 			{
-				  Wifi wifi1=new Wifi (temp.get(t));
+				  Wifi wifi1=temp.get(t);
 				   
 				   Fix_tempcount.add(temp.get(t));
 					for(int y=0;y<temp.size();y++)
 				  {  if(!temp.get(y).equals("1"))
 					    {
-					        Wifi wifi2=new Wifi (temp.get(y));
+					        Wifi wifi2=temp.get(y);
 					        if( wifi1.Comperator(wifi1.getMac(), wifi2.getMac())&&t!=y)
-					        {  temp.set(y,"1"); }
+					        {  temp.set(y,dead); }
 					    }
 				  }
 			  
@@ -151,7 +188,12 @@ public class WriteTxt2 {
 	}
  	public void WriteOrgnized() throws IOException
 	{  
-		/*   יוצר את המסמך הממוין לפי המיון שבחרנו בכל שורה עד 10 הכי חזקים */    
+		/**
+		 * call the liner function inorder to create the lines of the 
+		 * orgnized csv file.
+		 * each time the liner function return new arraylist .
+		 * the array list written in every line each time .    
+		 */
 	
 	    //--------------יצירת מסמך 
 	    File file2 = new File("orgnized.csv");
@@ -162,7 +204,7 @@ public class WriteTxt2 {
 	     
 	     
 	     
-	     int x=ListTest1.size();
+	     int x=ListLiner.size();
 
 	  ///--------------------------------------
 	     
@@ -188,7 +230,7 @@ public class WriteTxt2 {
 	          }
 	    	  
 	    	//----יוצרמסמך זמני של ה האיי הראשון
-	       if(!ListLiner.get(i).equals("1"))
+	       if(!ListLiner.get(i).getMac().equals("1"))
 	        {
 	    	   Writewifi_liner(i);
 	            ////--------------
@@ -200,11 +242,11 @@ public class WriteTxt2 {
 		    	
 		    	
 		    	
-			     ArrayList<String> csv2=new ArrayList<>(Fix_tempcount);
+			     ArrayList<Wifi> csv2=new ArrayList<>(Fix_tempcount);
 			     ///-----------
 					for(int count=0;count<z;count++)
 		    	{   if(count<=10)
-		    		{ Wifi w=new Wifi(csv2.get(count));
+		    		{ Wifi w=csv2.get(count);
 		    		  
 		    		writer.write(w.getMac()+","+w.getId()+","+w.getTime()+","+w.getSignal()+","+w.getLat()+","+w.getLot()+","+w.getHight()+",");
 		    		}
@@ -226,18 +268,5 @@ public class WriteTxt2 {
 
 	
 
- public static void main (String[]args) throws IOException 
- {
-	 WriteTxt2 run=new WriteTxt2();
-	 System.out.println("start");
-	 run.createTest1List();
-	 System.out.println("created test1list");
-
-	 
-	// run.WriteUniqWifi();
-	 System.out.println("created Uniqwifilist");
-	 run.WriteOrgnized();
-	 System.out.println("finsehd");
-	 
- }
+ 
 }

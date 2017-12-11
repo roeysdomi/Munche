@@ -14,7 +14,42 @@ public class Read {
 	
 	/////-----read and convert function---
 	
-	public ArrayList<String> converttocsv() throws FileNotFoundException
+	public ArrayList<Wifi> converttocsv() throws FileNotFoundException
+	{
+		/*   מקבל:מיקום של מסמך
+	    מחזיר סטרינג של מטריצה    
+	 */
+
+		
+	int z=0;
+	String g;
+
+	File file = new File(loc);
+
+	ArrayList<Wifi> csv1 = new  ArrayList<Wifi>();
+
+
+		Scanner sc = new Scanner(file);
+	   
+	    while (sc.hasNextLine()) {
+	         g = sc.nextLine();
+	        if(!(g.contains("SSID")||g.contains("WigleWifi")||g==null))
+	        {
+	          if(!(g.equals(",")))
+	          {
+	              Wifi wifi1=new Wifi(g);
+	           csv1.add(z++, wifi1);
+	        
+	          }
+	        }
+	    }
+	  
+	   
+
+		return csv1;
+
+	}
+	public ArrayList<String> converttocsv2() throws FileNotFoundException
 	{
 		/*   מקבל:מיקום של מסמך
 	    מחזיר סטרינג של מטריצה    
@@ -37,8 +72,8 @@ public class Read {
 	        {
 	          if(!(g.equals(",")))
 	          {
-	           csv1.add(z++,g);
-	           
+	              
+	           csv1.add(z++, g);
 	        
 	          }
 	        }

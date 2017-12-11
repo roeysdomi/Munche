@@ -165,7 +165,7 @@ public boolean checklocation(String lot3,String lat3)
 			
 			  if((!g.contains("WigleWifi"))&&(!g.contains("CurrentLatitude"))&&!g.equals(","))
 				{String[] words=g.split(",");
-				if(checklocation(words[6], words[5])==true)
+				if(checklocation(words[6], words[5]))
 				////////----העתקה-------
 				{
 				int rows=Integer.valueOf(words[0]);

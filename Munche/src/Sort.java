@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Sort {
 	String fileloc;
 	ArrayList<String> csv;
+	ArrayList<Wifi> csv2;
 	
 	////----------sort function--------
 	/**
@@ -12,19 +13,20 @@ public class Sort {
 	 * @return 
 	 * @throws FileNotFoundException
 	 */
-	public ArrayList<String> SortSignal() throws FileNotFoundException
+
+	public ArrayList<Wifi> SortSignal() throws FileNotFoundException
 	{
 
-		ArrayList<String>test=csv;
+		ArrayList<Wifi>test=new ArrayList<>(csv2);
         
       
 	     for(int i=0;i<test.size();i++)
 	     {
-	    	 Wifi wifi1=new Wifi(test.get(i));
+	    	 Wifi wifi1=test.get(i);
 	    	 int max=Integer.valueOf(wifi1.getSignal());
 	    	 for(int j=0;j<test.size();j++)
-	    	 {   Wifi wifi2=new Wifi(test.get(j));
-	    		 String temp=test.get(i);
+	    	 {   Wifi wifi2=test.get(j);
+	    		 Wifi temp=test.get(i);
 	    		 int currect=Integer.valueOf(wifi2.getSignal());
 	    		 
 
@@ -39,7 +41,6 @@ public class Sort {
 
 	  return test;	
 	}
-
 
 //--------set and get---------
 	public String getFileloc() {
@@ -62,6 +63,12 @@ public class Sort {
 
 	public void setCsv(ArrayList<String> csv) {
 		this.csv = csv;
+	}
+	public ArrayList<Wifi> getCsv2() {
+		return csv2;
+	}
+	public void setCsv2(ArrayList<Wifi> csv2) {
+		this.csv2 = csv2;
 	}
 
 	

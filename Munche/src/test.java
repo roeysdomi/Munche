@@ -12,8 +12,9 @@ public class test {
 	public static void main(String[]args) throws IOException
 	{
 		/////-----מפה מריצים------
+	
 		
-       
+      
 		Start run=new Start();
 		run.Start();
 		//Wifi wifi=new Wifi();

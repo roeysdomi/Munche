@@ -15,6 +15,10 @@ public class Wifi {
 	{
 		
 	}
+	public void Wifikill(String g)
+	{
+		this.mac=g;
+	}
 	public Wifi(String g)
 	{   if(!g.equals("1"))
 		{
@@ -74,6 +78,8 @@ public class Wifi {
 		if(!isNumeric(loc.getHight())) {failtesting=false;System.out.println("Error hight look :"+loc.getHight());return;}
 		}
 	}
+	
+	
 	public boolean Comperator(String wifi1,String wifi2)
 	{ 
 	  
@@ -140,6 +146,19 @@ public class Wifi {
 	     wifi1.getLat().equals(wifi2.getLat())&&
 	     wifi2.getLot().equals(wifi2.getLot())&&
 	     wifi2.getHight().equals(wifi2.getHight())
+	    )
+	  {return true;}
+	  else 
+		  return false;
+	
+	 	
+	}
+	public boolean MacComperator(Wifi wifi1,Wifi wifi2)
+	{ 
+	  
+	  if(
+	     wifi1.getMac().equals(wifi2.getMac())
+	     
 	    )
 	  {return true;}
 	  else 

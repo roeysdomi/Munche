@@ -30,12 +30,12 @@ public class Start {
 			        System.out.println("============================================");
 			        System.out.println("    What sort would you like to choose?");
 			        System.out.println();
-			        System.out.println("Press :|1|-for ID,|3|-for TIME,|4|-for LOCATION,|5|-All Togther");
+			        System.out.println("Press :|1|-for ID,|3|-for TIME,|4|-for LOCATION,|5|-All Togther,|6|-mac");
 			        System.out.println("============================================");
 
 			        Scanner input=new Scanner(System.in);
 			        choose=input.nextInt();
-			        if(choose!=1&&choose!=3&&choose!=4&&choose!=5) {System.out.println("====ERROR WRONG CHOISE===");failtesting=false;return;}
+			        if(choose!=1&&choose!=3&&choose!=4&&choose!=5&&choose!=6) {System.out.println("====ERROR WRONG CHOISE===");failtesting=false;return;}
 			        System.out.println("          You choosed : |"+choose+"|");
 			        if(choose==1)
 			        {
@@ -96,13 +96,9 @@ public class Start {
 			        WriteTxt2 run=new WriteTxt2();
 			   	 System.out.println("start");
 			   	 run.createTest1List();
-			   	 System.out.println("created test1list");
-
 			   	 
-			   	// run.WriteUniqWifi();
-			   	 System.out.println("created Uniqwifilist");
 			   	 run.WriteOrgnized();
-			   	 System.out.println("finsehd");
+			  
 			     
 			       ///-----הפעלת פילטר לפי המיון----
 			       if(choose==1){filter1.filterID();}

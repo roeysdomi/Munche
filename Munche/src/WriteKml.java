@@ -19,7 +19,7 @@ public class WriteKml {
 	    a1.setCsvfilename("filterd");
 		a1.convertcsvtotxt();
 		a1.setLoc(path+"filterd.txt");
-		ArrayList<String>temp=a1.converttocsv();
+		ArrayList<String>temp=a1.converttocsv2();
 		///--------יצירת מסמך KML---
 		File file1=new File(path+"googlearth-ver1.kml");
 		file1.createNewFile();
@@ -89,7 +89,7 @@ public class WriteKml {
 	    a1.setCsvfilename("filterd");
 		a1.convertcsvtotxt();
 		a1.setLoc(path+"filterd.txt");
-		ArrayList<String>temp=a1.converttocsv();
+		ArrayList<String>temp=a1.converttocsv2();
 	     
 		///------------כתיבת  הKML
 		final Kml kml = new Kml();
