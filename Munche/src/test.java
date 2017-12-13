@@ -42,10 +42,10 @@ public class test {
         check.add(1,wifi2);
         check.add(2,wifi3);
         Start ch=new Start();
-        ch.choose=6;
         WriteTxt3 run=new WriteTxt3();
+        ch.Start();
       //  run.ListLiner=new ArrayList<>(check);
-        run.WriteMacalgo();
+        //run.WriteMacalgo();
 		//Start run=new Start();
 		//run.Start();
 		//Wifi wifi=new Wifi();

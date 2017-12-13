@@ -16,7 +16,7 @@ public class WriteTxt3 {
 	public ArrayList<Wifi> tempcount;
 	public ArrayList<Wifi> Sort_tempcount;
 	public ArrayList<Wifi> Fix_tempcount;
-	public ArrayList<CompareWifi2> result_mac;
+	public ArrayList<Calc1parms> result_mac;
 	
 	/**
 	 * @throws IOException 
@@ -25,7 +25,14 @@ public class WriteTxt3 {
 	 * It manipulate them from ,csv file until the orgnized csv file
 	 * whice the the filter class work with.
 	 */
-	
+	/**
+	 * this is class is handle the mac sort and manipulate it 
+	 * ,by calc1 algorithem.
+	 * Its write csv file in order to view that the result are good.
+	 * 
+	 * 
+	 * @throws IOException
+	 */
 	public WriteTxt3() throws IOException
 	{
 		createTest1List();
@@ -78,7 +85,7 @@ public class WriteTxt3 {
  	public void Writewifi_liner(int i) throws IOException 
 	{    
  		/**
- 		 * The function that create the lines in the of the orgnized csv file.
+ 		 * The function that create the lines in the of the macBycalc1 csv file.
  		 * the function get the choosen line(the one that you want to compare the rest) and compare it to the rest of the lines,once 
  		 * its find the same object its add to the list , sort them and clean the duplicate mac addres.
  		 * at the end he return fix_temp count list for the orgnized function .
@@ -110,16 +117,10 @@ public class WriteTxt3 {
                     				 
 				      
 				 
-				 if(a1.choose==1) 
-	             {if(com.IDComperator(i, z)) {tempcount.add(ListLiner.get(z));ListLiner.set(z,dead );}};
-	             if(a1.choose==3) 
-	             {if(com.TimeComperator(i, z)) {tempcount.add(ListLiner.get(z));ListLiner.set(z,dead );}};
-	             if(a1.choose==4) 
-	             {if(com.LocComperator(i, z)) {tempcount.add(ListLiner.get(z));ListLiner.set(z,dead );}};
+				 
 	             if(a1.choose==6) 
 	             {if(com.MacComperator(i, z)) {tempcount.add(ListLiner.get(z));ListLiner.set(z,dead );}};
-	             if(a1.choose==5) 
-	             {if(com.AllComperator(i, z)) {tempcount.add(ListLiner.get(z));ListLiner.set(z,dead );}};
+	            
 	             
 			           
 			           
@@ -154,7 +155,7 @@ public class WriteTxt3 {
 	{  
 		/**
 		 * call the liner function inorder to create the lines of the 
-		 * orgnized csv file.
+		 * Macbycalc1 csv file.
 		 * each time the liner function return new arraylist .
 		 *     
 		 */

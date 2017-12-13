@@ -51,9 +51,10 @@ public class Read {
 	}
 	public ArrayList<String> converttocsv2() throws FileNotFoundException
 	{
-		/*   מקבל:מיקום של מסמך
-	    מחזיר סטרינג של מטריצה    
-	 */
+	  /**
+	   * convert csv to array list of String type.
+	   * this function is used in writekml class.
+	   */
 
 		
 	int z=0;

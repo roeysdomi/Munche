@@ -18,9 +18,9 @@ public class Start {
 				Filter filter1=new Filter();
 			    
 				///-------איחוד קבצי CSV----
-		        Writetxt writetxt=new Writetxt();
+		    //    Writetxt writetxt=new Writetxt();
 		        
-				writetxt.Writetext1();
+				//writetxt.Writetext1();
 				////-------------------
 				int z=0;
 			    System.out.println("REMINDER: the files need to be here:"+path);
@@ -120,7 +120,7 @@ public class Start {
 			        {
 			        	 WriteTxt3 run=new WriteTxt3();
 			        	 run.createTest1List();
-			            // run.WriteMacalgo();
+			             run.WriteMacalgo();
 			        }
 			       if(choose==5) {System.out.println("Only created orgnized file");}
 			       System.out.println("     ==========================");

@@ -1,4 +1,4 @@
-public class CompareWifi2 {
+public class Calc1parms {
 	String path=System.getProperty("user.dir")+"\\";
 	String csvpath=System.getProperty("user.dir")+"\\csv\\";
 	
@@ -11,7 +11,7 @@ public class CompareWifi2 {
 	
 	
 	
-	public CompareWifi2()
+	public Calc1parms()
 	{
 		
 	}

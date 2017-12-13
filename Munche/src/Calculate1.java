@@ -4,8 +4,8 @@ public class Calculate1 {
 	String path=System.getProperty("user.dir")+"\\";
 	String csvpath=System.getProperty("user.dir")+"\\csv\\";
 	public ArrayList<Wifi> enterlist;
-	public ArrayList<CompareWifi2> weightlist;
-	public ArrayList<CompareWifi2> result;
+	public ArrayList<Calc1parms> weightlist;
+	public ArrayList<Calc1parms> result;
 	
 
 
@@ -35,7 +35,7 @@ public void Creatweightlist()
 		double newlot=lot*weight;
 		double newhight=hight*weight;
 		
-		CompareWifi2 com=new CompareWifi2();
+		Calc1parms com=new Calc1parms();
 		com.setLat(newlat);
 		com.setLot(newlot);
 		com.setHight(newhight);
@@ -58,7 +58,7 @@ public void createresult()
 		 sumhight=sumhight+weightlist.get(i).getHight();
 		 sumweight=sumweight+weightlist.get(i).getWeight();
 	}
-	CompareWifi2 com=new CompareWifi2();
+	Calc1parms com=new Calc1parms();
 	double finallat=sumlat/sumweight;
 	double finallot=sumlot/sumweight;
 	double finalhight=sumhight/sumweight;
