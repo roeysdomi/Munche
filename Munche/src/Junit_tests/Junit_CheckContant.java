@@ -1,8 +1,12 @@
+package Junit_tests;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.IOException;
 
 import org.junit.jupiter.api.Test;
+
+import Algorithems.Start;
+import Wifi.Wifi;
 
 class Junit_CheckContant {
 	String path=System.getProperty("user.dir")+"\\";

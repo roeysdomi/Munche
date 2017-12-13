@@ -1,8 +1,11 @@
+package Junit_tests;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.IOException;
 
 import org.junit.jupiter.api.Test;
+
+import Algorithems.Start;
 
 class Junit_CheckChooise {
 	String path=System.getProperty("user.dir")+"\\";

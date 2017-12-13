@@ -1,4 +1,8 @@
+package Algorithems;
 import java.util.ArrayList;
+
+import Wifi.Calc1parms;
+import Wifi.Wifi;
 
 public class Calculate1 {
 	String path=System.getProperty("user.dir")+"\\";

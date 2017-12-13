@@ -1,3 +1,5 @@
+package Algorithems;
+import Wifi.Wifi;
 
 public class Calculate2 {
 	final int power=2;

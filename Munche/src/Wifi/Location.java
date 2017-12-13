@@ -1,4 +1,8 @@
 
+package Wifi;
+
+
+
 public class Location {
 
 String lat;

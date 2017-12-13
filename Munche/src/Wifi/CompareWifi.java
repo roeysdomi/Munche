@@ -1,3 +1,4 @@
+package Wifi;
 import java.util.ArrayList;
 
 public class CompareWifi {

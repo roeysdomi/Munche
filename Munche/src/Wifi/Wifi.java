@@ -1,3 +1,4 @@
+package Wifi;
 
 public class Wifi {
 	public String wifinum;

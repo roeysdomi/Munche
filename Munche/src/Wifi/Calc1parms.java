@@ -1,3 +1,4 @@
+package Wifi;
 public class Calc1parms {
 	String path=System.getProperty("user.dir")+"\\";
 	String csvpath=System.getProperty("user.dir")+"\\csv\\";
