@@ -19,7 +19,10 @@ public class Filter {
 	public  String hours2;
 	public  String minutes1;
 	public  String minutes2;
-
+    
+	
+	
+	
    ///-------filter function----------
 	
 	
