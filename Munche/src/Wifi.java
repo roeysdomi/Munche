@@ -17,10 +17,19 @@ public class Wifi {
 	}
 	public void Wifikill(String g)
 	{
+		/**
+		 * mathod that mark the lines that already been used.
+		 */
 		this.mac=g;
 	}
 	public Wifi(String g)
-	{   if(!g.equals("1"))
+	{   
+		/**
+		 * mathod to sepreate the string and create the wifi objects.
+		 */
+		
+		
+		if(!g.equals("1"))
 		{
 		String []words=g.split(",");
 		if(words.length<9) {failtesting=false;System.out.println("contant error");}
@@ -41,7 +50,11 @@ public class Wifi {
 		}
 	}
 	public void Wififilterd(String g)
-	{   if(!g.equals("1"))
+	{   /**
+		 * mathod to sepreate the string and create the wifi objects.
+		 * in filter class
+		 */
+		if(!g.equals("1"))
 		{
 		String []words=g.split(",");
 		if(words.length<7) {failtesting=false;System.out.println("contant error");}
@@ -57,10 +70,16 @@ public class Wifi {
 		if(!isNumeric(loc.getLat())) {failtesting=false;System.out.println("Error Lat look :"+loc.getLat());return;}
 		if(!isNumeric(loc.getLot())) {failtesting=false;System.out.println("Error Lot look :"+loc.getLot());return;}
 		if(!isNumeric(loc.getHight())) {failtesting=false;System.out.println("Error hight look :"+loc.getHight());return;}
+		
 		}
 	}
 	public void Wifiorgenized(String g)
-	{   if(!g.equals("1"))
+	{  
+		/**
+		 * mathod to sepreate the string and create the wifi objects.
+		 * in writetxt2 class.
+		 */
+		if(!g.equals("1"))
 		{
 		String []words=g.split(",");
 		if(words.length<7) {failtesting=false;System.out.println("contant error");}
@@ -168,12 +187,19 @@ public class Wifi {
 	}
 	public static boolean isNumeric(String s) 
 	{  
+		/**
+		 * check if number.
+		 */
 	    return s != null && s.matches("[-+]?\\d*\\.?\\d+");  
 	   
 	}  
    
     public static boolean isDate(String s)
-    { boolean a=true;
+    { 
+    	/**
+    	 * check if its date.
+    	 */
+      boolean a=true;
       if(!(s.contains(":")&&(s.contains("-")||s.contains("/")))) {return false;}
       String []check=s.split("-|:|/| ");
       for(int i=0;i<check.length;i++)
@@ -187,7 +213,7 @@ public class Wifi {
 		return wifinum;
 	}
 
-
+///------------get and set---------
 	public void setWifinum(String wifinum) {
 		this.wifinum = wifinum;
 	}

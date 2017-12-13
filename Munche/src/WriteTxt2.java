@@ -19,7 +19,7 @@ public class WriteTxt2 {
 	 * @The class that incharge  all the procces
 	 * of writing to Arraylist.
 	 * It manipulate them from ,csv file until the orgnized csv file
-	 * whice the the filter class work with.
+	 * whice the the filter class work with..
 	 */
 	
 	public WriteTxt2()

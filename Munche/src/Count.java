@@ -11,10 +11,17 @@ ArrayList<String> csv;
 
 
 
-
+/**
+ * this class count rows in txt file and csv file.
+ * @return
+ * @throws FileNotFoundException
+ */
 
 public int countrows() throws FileNotFoundException
 {
+	/**
+	 * count rows in txt file
+	 */
  int z=0;
  File file1=new File(loc);
  Scanner sc =new Scanner(file1);
@@ -25,6 +32,9 @@ public int countrows() throws FileNotFoundException
 }
 public int countrowsCSV() throws FileNotFoundException
 {
+	/**
+	 * count rows in csv file
+	 */
  int z=0;
  ArrayList<String> temp=csv;
  ///---------------------
@@ -35,16 +45,11 @@ public int countrowsCSV() throws FileNotFoundException
 
 
 
-
+//------------get and set-------------
 
 public String getLoc() {
 	return loc;
 }
-
-
-
-
-
 public void setLoc(String loc) {
 	this.loc = loc;
 }

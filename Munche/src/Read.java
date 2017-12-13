@@ -16,10 +16,9 @@ public class Read {
 	
 	public ArrayList<Wifi> converttocsv() throws FileNotFoundException
 	{
-		/*   מקבל:מיקום של מסמך
-	    מחזיר סטרינג של מטריצה    
-	 */
-
+		/**
+		 * read text file and convert it to wifi array list.
+		 */
 		
 	int z=0;
 	String g;
@@ -86,7 +85,11 @@ public class Read {
 
 	}
 	public void convertcsvtotxt() throws IOException
-	{ /*  ממיר קובץ סיאססויי למסמך טקסט(צריך להכניס מיקום) בסטרינג.*/
+	{ 
+		
+		/**
+		 * take csv file and convert it to txt file.
+		 */
 		
 		File file1=new File(path+csvfilename+".txt");
 		file1.createNewFile();

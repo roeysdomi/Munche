@@ -9,14 +9,17 @@ public class Sort {
 	
 	////----------sort function--------
 	/**
-	 * 
+	 *the class handle the sorting process.
+	 *by sginal.
 	 * @return 
 	 * @throws FileNotFoundException
 	 */
 
 	public ArrayList<Wifi> SortSignal() throws FileNotFoundException
 	{
-
+        /**
+         * take the array list of the wifi type and sort it by signal.
+         */
 		ArrayList<Wifi>test=new ArrayList<>(csv2);
         
       

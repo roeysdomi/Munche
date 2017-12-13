@@ -8,7 +8,7 @@ String hight;
 
 /**
  * This is subclass in the wifi class
- * which contain all the location parms
+ * which contain all the location parms.
  * @return
  */
 ///------set and get---------

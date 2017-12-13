@@ -7,7 +7,11 @@ public class Calculate1 {
 	public ArrayList<Calc1parms> weightlist;
 	public ArrayList<Calc1parms> result;
 	
-
+/** 
+ * class that handle all the calculate of the first algorithem.
+ * 
+ * @param list
+ */
 
 public Calculate1( ArrayList<Wifi> list)
 	{
@@ -16,13 +20,20 @@ public Calculate1( ArrayList<Wifi> list)
 		this.result=new ArrayList<>();
 	}
 public void runCalculate1( )
-{
+{  
+	/**
+	 * run all the procces
+	 */
 	Creatweightlist();
 	createresult();
 }
 
 public void Creatweightlist()
-{
+{ 
+	/**
+	 * first the function create the list of all the 
+	 * location of the same mac only its written after the manipulation of the algorithem.
+	 */
 	for (int i=0;i<enterlist.size();i++)
 	{
 		double Signal=Double.valueOf(enterlist.get(i).getSignal());
@@ -45,7 +56,12 @@ public void Creatweightlist()
 	}
 }
 public void createresult()
-{    double sumlat=0;
+{    
+	/**
+	 * this function sums up al the lats ,lot,hight,
+	 * togther as the algorithem requierd
+	 */
+	double sumlat=0;
      double sumlot=0;
      double sumhight=0;
      double sumweight=0;

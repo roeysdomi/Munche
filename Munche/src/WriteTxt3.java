@@ -28,7 +28,7 @@ public class WriteTxt3 {
 	/**
 	 * this is class is handle the mac sort and manipulate it 
 	 * ,by calc1 algorithem.
-	 * Its write csv file in order to view that the result are good.
+	 * Its write csv file in order to view that the result are good..
 	 * 
 	 * 
 	 * @throws IOException

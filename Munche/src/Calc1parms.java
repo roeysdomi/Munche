@@ -8,7 +8,11 @@ public class Calc1parms {
 	double weight;
 	String mac;
 	
-	
+	/***
+	 * class the created specifcly for the calc1 algorithem
+	 * he only foucs on the object of wifi that really matter for the 
+	 * procces of the first algorithem.
+	 */
 	
 	
 	public Calc1parms()

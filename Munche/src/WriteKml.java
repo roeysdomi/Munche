@@ -13,9 +13,25 @@ import de.micromata.opengis.kml.v_2_2_0.Style;
 public class WriteKml {
 	String path=System.getProperty("user.dir")+"\\";
 	String csvpath=System.getProperty("user.dir")+"\\csv\\";
+	
+	/**
+	 * This class handle all the process that create the kml file 
+	 * for google earth.
+	 * @throws IOException
+	 */
+	
+	
 	////////-----------create kml function-----
+	
+	
 	public void createkml() throws IOException
-	{   Read a1=new Read();
+	{   
+		/**
+		 * create kml mathod not in use anymore.
+		 */
+		
+		
+		Read a1=new Read();
 	    a1.setCsvfilename("filterd");
 		a1.convertcsvtotxt();
 		a1.setLoc(path+"filterd.txt");
@@ -77,6 +93,9 @@ public class WriteKml {
 	
 	public String createtimesrap(String time)
     {
+		/**
+		 * create the stracture of the timestamp
+		 */
     	String []g=time.split(" ");
     	String a=g[0]+"T";
     	return a+g[1];
@@ -84,7 +103,13 @@ public class WriteKml {
 	
 	
 	public void createkml2()throws IOException
-	{    ////-----ךקיחת קובץ קריאה 
+	{    
+		
+		/**
+		 * read from the filterd csv file and convert to kml file.
+		 */
+		
+		////-----ךקיחת קובץ קריאה 
 		Read a1=new Read();
 	    a1.setCsvfilename("filterd");
 		a1.convertcsvtotxt();

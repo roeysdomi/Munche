@@ -5,7 +5,10 @@ public class CompareWifi {
 	String csvpath=System.getProperty("user.dir")+"\\csv\\";
 	public ArrayList<Wifi> listcomp;
 	
-	
+	/**
+	 * class that contain all comprators of wifi arrays list.
+	 * @param example
+	 */
 	
 	
 	
@@ -15,6 +18,9 @@ public class CompareWifi {
 	}
 	public boolean IDComperator(int i,int z)
 	{ 
+		/**
+		 * id comperator
+		 */
 	  
 	  if(
 	     listcomp.get(i).getId().equals(listcomp.get(z).getId())
@@ -28,7 +34,9 @@ public class CompareWifi {
 	}
 	public boolean TimeComperator(int i,int z)
 	{ 
-	  
+	  /**
+	   * time comperator
+	   */
 	  if(
 	     listcomp.get(i).getTime().equals(listcomp.get(z).getTime())
 	    
@@ -40,7 +48,9 @@ public class CompareWifi {
 	}
 	public boolean LocComperator(int i,int z)
 	{ 
-	  
+	  /**
+	   * location comprator
+	   */
 	  if(
 	     listcomp.get(i).getLat().equals(listcomp.get(z).getLat())&&
 	     listcomp.get(i).getLot().equals(listcomp.get(z).getLot())&&
@@ -55,7 +65,10 @@ public class CompareWifi {
 	
 	public boolean MacComperator(int i,int z)
 	{ 
-	  
+	    /**
+	     * mac comprator
+	     * 
+	     */
 	  if(
 	     listcomp.get(i).getMac().equals(listcomp.get(z).getMac())
 	     
@@ -68,6 +81,9 @@ public class CompareWifi {
 	}
 	public boolean AllComperator(int i,int z)
 	{ 
+		/**
+		 * comprator of time id and loc togther
+		 */
 	  
 	  if(    listcomp.get(i).getId().equals(listcomp.get(z).getId())&& 
 			  listcomp.get(i).getTime().equals(listcomp.get(z).getTime())&&
