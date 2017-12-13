@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 
@@ -8,6 +9,7 @@ public class Filter {
 	
 	String path=System.getProperty("user.dir")+"\\";
 	String csvpath=System.getProperty("user.dir")+"\\csv\\";
+	public ArrayList<Wifi> Filter_list_temp;
 	public  String  lat1;
 	public  String lot1;
 	public  String  lat2;
@@ -19,6 +21,7 @@ public class Filter {
 	public  String minutes2;
 
    ///-------filter function----------
+	
 	
 	public void filterID() throws IOException
 	{   Filterfunc a1=new Filterfunc();
@@ -52,9 +55,8 @@ public class Filter {
 		}
 		sc.close();
 		writer.close();
-	}
-	
-public void filterTime() throws IOException
+	}	
+    public void filterTime() throws IOException
 	{   Filterfunc a1=new Filterfunc();
 		///---------write to---------
 
@@ -93,7 +95,7 @@ public void filterTime() throws IOException
 		sc.close();
 		writer.close();
 	}
-public boolean checklocation(String lot3,String lat3)
+    public boolean checklocation(String lot3,String lat3)
 {
   boolean a=true;
   ////------הגדרת משתנים
@@ -113,7 +115,6 @@ public boolean checklocation(String lot3,String lat3)
 
  return a;
 }
-
     public boolean checkTime(String time)
     { boolean a=false;
        String[] firstsplit=time.split(" ");

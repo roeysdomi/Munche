@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Scanner;
 
-public class WriteTxt2 {
+import sun.font.CreatedFontTracker;
+
+public class WriteTxt3 {
 	String path=System.getProperty("user.dir")+"\\";
 	String csvpath=System.getProperty("user.dir")+"\\csv\\";
 	
@@ -14,17 +16,19 @@ public class WriteTxt2 {
 	public ArrayList<Wifi> tempcount;
 	public ArrayList<Wifi> Sort_tempcount;
 	public ArrayList<Wifi> Fix_tempcount;
+	public ArrayList<CompareWifi2> result_mac;
 	
 	/**
+	 * @throws IOException 
 	 * @The class that incharge  all the procces
 	 * of writing to Arraylist.
 	 * It manipulate them from ,csv file until the orgnized csv file
 	 * whice the the filter class work with.
 	 */
 	
-	public WriteTxt2()
+	public WriteTxt3() throws IOException
 	{
-		
+		createTest1List();
 	}
 	public void createTest1List() throws IOException
 	{  
@@ -138,55 +142,15 @@ public class WriteTxt2 {
 		     Sort_tempcount=new ArrayList<Wifi>();
 		     Fix_tempcount=new ArrayList<Wifi>();
 			 Sort_tempcount=sort.SortSignal();
-		     ///------------------
-			// Fix_tempcount=new ArrayList<Wifi>(Sort_tempcount);
-		     /////--------------------
-		     //if(a1.choose==6)
-		    Writefixmac();
+		     Calculate1 calc1=new Calculate1(Sort_tempcount);
+		     calc1.runCalculate1();
+		     this.result_mac=new ArrayList<>(calc1.result);
 		   
 	  }    
 	    
 }
- 	public void Writefixmac() throws IOException
-	{  
- 		/**
- 		 * clean the duplicate mac .
- 		 * leave only the most strongest mac address.
- 		 * all of them of course unique
- 		 */
-	
-		////--------------------
-		ArrayList<Wifi>temp=new ArrayList<>(Sort_tempcount);
-		Fix_tempcount=new ArrayList<>();
-		Wifi dead=new Wifi();
-		dead.Wifikill("1");
-		////------------------
-		for(int t=0;t<temp.size();t++)
-		 { 
-			if(!temp.get(t).getMac().equals("1"))
-			{
-				  Wifi wifi1=temp.get(t);
-				   
-				   Fix_tempcount.add(temp.get(t));
-					for(int y=0;y<temp.size();y++)
-				  {  if(!temp.get(y).equals("1"))
-					    {
-					        Wifi wifi2=temp.get(y);
-					        if( wifi1.Comperator(wifi1.getMac(), wifi2.getMac())&&t!=y)
-					        {  temp.set(y,dead); }
-					    }
-				  }
-			  
-			}
-		 } 
-	 ////---------------------
-		 
-		 
-		 
-		 
-		
-	}
- 	public void WriteOrgnized() throws IOException
+ 	
+ 	public void WriteMacalgo() throws IOException
 	{  
 		/**
 		 * call the liner function inorder to create the lines of the 
@@ -196,7 +160,7 @@ public class WriteTxt2 {
 		 */
 	
 	    //--------------יצירת מסמך 
-	    File file2 = new File("orgnized.csv");
+	    File file2 = new File("MacByCalc_1.csv");
 	    file2.createNewFile();
 	    FileWriter writer = new FileWriter(file2); 
 	    //----------------------------------
@@ -208,11 +172,9 @@ public class WriteTxt2 {
 
 	  ///--------------------------------------
 	     
-	     writer.write("WigleWifi-1.4,appRelease=2.25,model=ONEPLUS A3003,release=7.1.1,device=OnePlus3T,display=ONEPLUS A3003_28_171012,board=QC_Reference_Phone,brand=OnePlus");
-	     writer.write(System.lineSeparator());
-	     writer.write("WIFI#,");
-	     for(int k=1;k<11;k++)
-	     {writer.write("MAC-"+k+",SSID-"+k+",FirstSeen-"+k+",RSSI-"+k+",CurrentLatitude-"+k+",CurrentLongitude-"+k+",AltitudeMeters-"+k+",") ;  };
+	    
+	    
+	     writer.write("MAC ,lat,Lot,hight") ;  
 	     writer.write(System.lineSeparator());
          ///-------חישוב אחוזים------
 	     double all=x*0.01;
@@ -235,22 +197,16 @@ public class WriteTxt2 {
 	    	   Writewifi_liner(i);
 	            ////--------------
 		       
-		    	int z=Fix_tempcount.size();
-	
-		    	writer.write(z+",");
+		    	
 		    	/////---------
 		    	
 		    	
 		    	
-			     ArrayList<Wifi> csv2=new ArrayList<>(Fix_tempcount);
+			    
 			     ///-----------
-					for(int count=0;count<z;count++)
-		    	{   if(count<=10)
-		    		{ Wifi w=csv2.get(count);
-		    		  
-		    		writer.write(w.getMac()+","+w.getId()+","+w.getTime()+","+w.getSignal()+","+w.getLat()+","+w.getLot()+","+w.getHight()+",");
-		    		}
-		    	}
+				
+		    		writer.write(result_mac.get(0).getMac()+","+result_mac.get(0).getLat()+","+result_mac.get(0).getLot()+","+result_mac.get(0).getHight());
+		    	
 					writer.write(System.lineSeparator());
 		    	
 		    	

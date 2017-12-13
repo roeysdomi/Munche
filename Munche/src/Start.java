@@ -93,24 +93,35 @@ public class Start {
 			        	 
 			        }
 			        ////--------הכנת קבצים-----
-			        WriteTxt2 run=new WriteTxt2();
-			   	 System.out.println("start");
-			   	 run.createTest1List();
-			   	 
-			   	 run.WriteOrgnized();
-			  
-			     
-			       ///-----הפעלת פילטר לפי המיון----
-			       if(choose==1){filter1.filterID();}
-			       if(choose==3){filter1.filterTime();}
-			       if(choose==4){filter1.filterLocation();}
-			       /////--------יצירת KML-----
-			       if(choose!=5)
-			       {
-			       WriteKml kml=new WriteKml();
-			       
-			       kml.createkml2();
-			       }
+			        if(choose!=6)
+			        {
+					        WriteTxt2 run=new WriteTxt2();
+					   	 System.out.println("start");
+					   	 run.createTest1List();
+					   	 
+					   	 run.WriteOrgnized();
+					  
+					     
+					       ///-----הפעלת פילטר לפי המיון----
+					       if(choose==1){filter1.filterID();}
+					       if(choose==3){filter1.filterTime();}
+					       if(choose==4){filter1.filterLocation();}
+					       /////--------יצירת KML-----
+					       if(choose!=5)
+					       {
+					       WriteKml kml=new WriteKml();
+					       
+					       kml.createkml2();
+					       }
+			        }
+			        
+			        
+			        if(choose==6)
+			        {
+			        	 WriteTxt3 run=new WriteTxt3();
+			        	 run.createTest1List();
+			            // run.WriteMacalgo();
+			        }
 			       if(choose==5) {System.out.println("Only created orgnized file");}
 			       System.out.println("     ==========================");
 			       System.out.println("              FINSHED!");

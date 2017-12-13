@@ -1,5 +1,5 @@
 
-public class Calculate {
+public class Calculate2 {
 	final int power=2;
 	final int norm=10000;
    	final double sigdiff=0.4;
@@ -11,7 +11,7 @@ public class Calculate {
 	double w;
 	double pi;
 	int input;
-	public Calculate(int sig ,int input)
+	public Calculate2(int sig ,int input)
 	{
 		//sig=Integer.valueOf(wifi1.getSignal());
 		  if(sig==-120) {diff=100;}
