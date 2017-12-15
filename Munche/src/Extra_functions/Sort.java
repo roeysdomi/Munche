@@ -29,11 +29,11 @@ public class Sort {
 	     for(int i=0;i<test.size();i++)
 	     {
 	    	 Wifi wifi1=test.get(i);
-	    	 int max=Integer.valueOf(wifi1.getSignal());
+	    	 Double max=Double.valueOf(wifi1.getSignal());
 	    	 for(int j=0;j<test.size();j++)
 	    	 {   Wifi wifi2=test.get(j);
 	    		 Wifi temp=test.get(i);
-	    		 int currect=Integer.valueOf(wifi2.getSignal());
+	    		 Double currect=Double.valueOf(wifi2.getSignal());
 	    		 
 
 	    		 if(currect<max){test.set(i,test.get(j));test.set(j,temp);max=currect;}

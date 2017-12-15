@@ -8,6 +8,7 @@ public class Calc1parms {
 	double hight;
 	double weight;
 	String mac;
+	String Id;
 	
 	/***
 	 * class the created specifcly for the calc1 algorithem
@@ -90,6 +91,20 @@ public class Calc1parms {
 
 	public void setMac(String mac) {
 		this.mac = mac;
+	}
+
+
+
+
+	public String getId() {
+		return Id;
+	}
+
+
+
+
+	public void setId(String id) {
+		Id = id;
 	}
 	
 }

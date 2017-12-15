@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 import Algorithems.Start;
+import Reads.Read;
 import Wifi.Wifi;
 import Write.WriteTxt3;
 
@@ -46,16 +47,13 @@ public class test {
         check.add(1,wifi2);
         check.add(2,wifi3);
         Start ch=new Start();
-        WriteTxt3 run=new WriteTxt3();
-        ch.Start();
-      //  run.ListLiner=new ArrayList<>(check);
-        //run.WriteMacalgo();
-		//Start run=new Start();
-		//run.Start();
-		//Wifi wifi=new Wifi();
-		//wifi.setLat("34");
-		//System.out.println(wifi.getLat());
-	   
+        //WriteTxt3 run=new WriteTxt3();
+         ch.Start();
+        //Read re=new Read();
+        //re.setCsvfilename("check1");
+       // re.convertcsvtotxtnew();
+        //re.createnormalcsv();
+        		
 	}
 	
 	

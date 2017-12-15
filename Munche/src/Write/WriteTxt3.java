@@ -44,7 +44,7 @@ public class WriteTxt3 {
 	 */
 	public WriteTxt3() throws IOException
 	{
-		createTest1List();
+		
 	}
 	public void createTest1List() throws IOException
 	{  
@@ -55,40 +55,16 @@ public class WriteTxt3 {
 		 * Array list(Wifi element) which will used int the next function.
 		 */
 		
-		File file3=new File(path+"test1.csv");
-		file3.createNewFile();
-		File folder = new File(csvpath);
-		File[] listOfFiles = folder.listFiles();
-	    FileWriter writer=new FileWriter(path+"test1.csv");
-		for (File file : listOfFiles) {
-			if (file.isFile())
-			{
-		        String g=file.getName();
-		    
-			
-		    Scanner scanner = new Scanner(new File(csvpath+g));
-		    scanner.useDelimiter(",");
-	
-		    while(scanner.hasNext()){
-		    	String line=scanner.next();
-		        writer.write(line+",");
-		    }
-		    
-	
-		    scanner.close();
-		    }
-	      
-		} 
-		writer.close();
-	
-		System.out.println("---STARTING PROCCESS-WAIT FOR THE LOADING BAR----");
+		
+		
         Read readtext1=new Read();
-        readtext1.setCsvfilename("test1");
-        readtext1.convertcsvtotxt();
-        readtext1.setLoc(path+"test1.txt");
+        readtext1.setCsvfilename("check1");
+        //readtext1.convertcsvtotxt();
+        //readtext1.setLoc(path+"test1.txt");
         
         //ListTest1=readtext1.converttocsv();
-       ListLiner=readtext1.converttocsv();
+       ListLiner=readtext1.ReadeCombCsv();
+       System.out.println("dd");
 	}
  	
  	public void Writewifi_liner(int i) throws IOException 
@@ -124,9 +100,7 @@ public class WriteTxt3 {
 					
 				 CompareWifi com=new CompareWifi(ListLiner);
                     				 
-				      
-				 
-				 
+				
 	             if(a1.choose==6) 
 	             {if(com.MacComperator(i, z)) {tempcount.add(ListLiner.get(z));ListLiner.set(z,dead );}};
 	            
@@ -184,7 +158,7 @@ public class WriteTxt3 {
 	     
 	    
 	    
-	     writer.write("MAC ,lat,Lot,hight") ;  
+	     writer.write("ID,MAC ,lat,Lot,hight") ;  
 	     writer.write(System.lineSeparator());
          ///-------חישוב אחוזים------
 	     double all=x*0.01;
@@ -215,7 +189,7 @@ public class WriteTxt3 {
 			    
 			     ///-----------
 				
-		    		writer.write(result_mac.get(0).getMac()+","+result_mac.get(0).getLat()+","+result_mac.get(0).getLot()+","+result_mac.get(0).getHight());
+		    		writer.write(result_mac.get(0).getId()+","+result_mac.get(0).getMac()+","+result_mac.get(0).getLat()+","+result_mac.get(0).getLot()+","+result_mac.get(0).getHight());
 		    	
 					writer.write(System.lineSeparator());
 		    	

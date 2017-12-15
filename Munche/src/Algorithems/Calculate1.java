@@ -56,6 +56,7 @@ public void Creatweightlist()
 		com.setHight(newhight);
 		com.setWeight(weight);
 		com.setMac(enterlist.get(i).getMac());
+		com.setId(enterlist.get(i).getId());
 		weightlist.add(i,com);
 	}
 }
@@ -88,6 +89,7 @@ public void createresult()
 	com.setHight(finalhight);
 	com.setWeight(sumweight);
 	com.setMac(enterlist.get(0).getMac());
+	com.setId(enterlist.get(0).getId());
 	result.add(0,com);
 }
 	
