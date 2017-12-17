@@ -1,6 +1,8 @@
 package Write;
 
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -17,6 +19,7 @@ public class WriteTxt4 {
 	public ArrayList<Wifi> traininglist;
 	public ArrayList<Wifi> temp_targetlist;
 	public ArrayList<Wifi> temp_traininglist;
+	public ArrayList<Wifi> temp_pielist;
 	
 	
 	
@@ -31,40 +34,64 @@ public class WriteTxt4 {
 	 	 this.temp_traininglist=new ArrayList<>();
 		
 	}
-	public void WriteLiner() throws FileNotFoundException
-	{
-		 
+	public void WriteLiner() throws IOException
+	{   int writecounter=0;
+		File file2 = new File(path+"MacByCalc_2.csv");
+	    file2.createNewFile();
+	    FileWriter writer = new FileWriter(file2); 
 		double weight=1;
 		double pi;
-		for(int i=0;i<targetlist.size();i++)
-		{
+		int targetlastline=targetlist.get(targetlist.size()-1).getLine();
+		int traininglastline=traininglist.get(traininglist.size()-1).getLine();
+		for(int i=0;i< targetlastline;i++)
+		{   
+			if(i==53)
+		      {System.out.println("pie");}
+			this.temp_pielist=new ArrayList<>();
 			create_temp_target(i+1);			
 			
 					
 				
-				for(int z=0;z<traininglist.size();z++)
-				{    create_temp_training(z+1);
-				    if(temp_traininglist.size()!=0)
-				    {
+				for(int z=0;z<traininglastline;z++)
+				{    
+					create_temp_training(z+1);
+				    
 				      double pie=createpie();
-				     
-				      setpie(pie);
-				      Sort so=new Sort();
-				      so.setCsv2(temp_traininglist);
-				      temp_traininglist=so.SortPie();
-				      Calculate1 calc=new Calculate1(temp_traininglist);
-				      calc.setAlgo2(1);
-				      calc.runCalculate1();
 				      
+				      setpie(pie);
+				      Wifi wifi1=new Wifi();
+				      wifi1=temp_traininglist.get(0);
+				      temp_pielist.add(wifi1);
+				    
+				      if(pie==1)
+				      {System.out.println("pie");}
+				      System.out.println("this is i:"+i+"this is z:"+z+"this is pie:"+pie);
 				     
-				      System.out.println(calc.result.get(0).getLat()+","+calc.result.get(0).getLot()+","+calc.result.get(0).getHight()+",");
-				    }   
+				       
 				}
+				if(i==53)
+			      {System.out.println("pie");}
+				Sort so=new Sort();
+				so.setCsv2(temp_pielist);
+				temp_pielist=so.SortPie();
+				 Calculate1 calc=new Calculate1(temp_pielist);
+			      calc.setAlgo2(1);
+			      calc.runCalculate1();
+			     writecounter++;
+			      writer.write(calc.result.get(0).getLat()+","+calc.result.get(0).getLot()+","+calc.result.get(0).getHight()+","+temp_targetlist.size()+",");
+			      for(int f=0;f<temp_targetlist.size();f++)
+			      {
+			      writer.write(temp_targetlist.get(f).getId()+","+temp_targetlist.get(f).getMac()+","+temp_targetlist.get(f).getSignal()+",");
+			      }
+			      writer.write(System.lineSeparator());
+				System.out.println("checl");
+				
 				
 			
 			
 		}
-		
+		writer.close();
+		System.out.println(writecounter);
 		
 		
 		

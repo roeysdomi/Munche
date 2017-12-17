@@ -80,7 +80,7 @@ public void createresult()
      double sumhight=0;
      double sumweight=0;
      Start a1=new Start();
-     int size=5;
+     int size=3;
      if(size>weightlist.size()) {size=weightlist.size();}
      
     
