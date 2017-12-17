@@ -158,7 +158,7 @@ public class WriteTxt3 {
 	     
 	    
 	    
-	     writer.write("ID,MAC ,lat,Lot,hight") ;  
+	     writer.write("SSID,MAC ,lat,Lot,hight") ;  
 	     writer.write(System.lineSeparator());
          ///-------חישוב אחוזים------
 	     double all=x*0.01;
@@ -197,6 +197,7 @@ public class WriteTxt3 {
 		      }  
 	      }
 	       ///////////////////////////////////////////////////////
+	          System.out.println("ddw");
 			    writer.close();
 			    int rest=100-counter;
 			    for( int r=0;r<=rest;r++)

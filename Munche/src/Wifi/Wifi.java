@@ -6,6 +6,8 @@ public class Wifi {
 	public String id;
 	public String time;
 	public String signal;
+	public int line;
+	public double pie;
 	Location loc=new Location();
 	
    
@@ -281,6 +283,18 @@ public class Wifi {
 	}
 	public static void setFailtesting(Boolean failtesting) {
 		Wifi.failtesting = failtesting;
+	}
+	public int getLine() {
+		return line;
+	}
+	public void setLine(int line) {
+		this.line = line;
+	}
+	public double getPie() {
+		return pie;
+	}
+	public void setPie(double pie) {
+		this.pie = pie;
 	}
 	
 }

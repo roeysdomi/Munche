@@ -47,6 +47,35 @@ public class Sort {
 
 	  return test;	
 	}
+	public ArrayList<Wifi> SortPie() throws FileNotFoundException
+	{
+        /**
+         * take the array list of the wifi type and sort it by signal.
+         */
+		ArrayList<Wifi>test=new ArrayList<>(csv2);
+        
+      
+	     for(int i=0;i<test.size();i++)
+	     {
+	    	 Wifi wifi1=test.get(i);
+	    	 Double max=Double.valueOf(wifi1.getPie());
+	    	 for(int j=0;j<test.size();j++)
+	    	 {   Wifi wifi2=test.get(j);
+	    		 Wifi temp=test.get(i);
+	    		 Double currect=Double.valueOf(wifi2.getPie());
+	    		 
+
+	    		 if(currect<max){test.set(i,test.get(j));test.set(j,temp);max=currect;}
+	    	   
+	    		 
+	    	 }
+	    	
+	    	 
+	     }
+
+
+	  return test;	
+	}
 
 //--------set and get---------
 	public String getFileloc() {

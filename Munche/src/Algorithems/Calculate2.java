@@ -9,33 +9,27 @@ public class Calculate2 {
 	final int diffnosig=100;
 	/////------
 	int sig;
-	int diff;
+	double diff;
 	double w;
 	double pi;
 	int input;
-	public Calculate2(int sig ,int input)
-	{
-		//sig=Integer.valueOf(wifi1.getSignal());
+	public double Calculate2(Wifi wifinput ,Wifi wifitrain)
+	{     double input=Integer.valueOf(wifinput.getSignal());
+		  double sig=Integer.valueOf(wifitrain.getSignal());
 		  if(sig==-120) {diff=100;}
 		  if(sig!=-120)
 		  {
-		  int hefresh=Math.abs((input-sig));
-		  int max= Math.max(hefresh, mindiff);
+		  double hefresh= Math.abs((input-sig));
+		  double max= Math.max(hefresh, mindiff);
 		  this.diff=max;
 	      }
 		  double firstpower=Math.pow(diff, sigdiff);
 		  double secondpower=Math.pow(input, power);
-		  this.w=norm/(firstpower*secondpower);
-		  System.out.println("this is w:"+w+"|this is diff"+diff);
+		double weight =norm/(firstpower*secondpower);
+		 return weight;
 	}
 	
-	public void create_w(Wifi wifi1,Wifi wifi2,Wifi wifi3)
-	{
-	   
-	}
-	public static void main  (String []args)
-	{
-		Calculate roey =new Calculate(-120, -50);
-	}
+	
+	
 	
 }

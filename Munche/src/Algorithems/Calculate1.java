@@ -10,6 +10,7 @@ public class Calculate1 {
 	public ArrayList<Wifi> enterlist;
 	public ArrayList<Calc1parms> weightlist;
 	public ArrayList<Calc1parms> result;
+	int algo2=0;;
 	
 /** 
  * class that handle all the calculate of the first algorithem.
@@ -44,7 +45,15 @@ public void Creatweightlist()
 		double lat=Double.valueOf(enterlist.get(i).getLat());
 		double lot=Double.valueOf(enterlist.get(i).getLot());
 		double hight=Double.valueOf(enterlist.get(i).getHight());
-		double weight=1/(Signal*Signal);
+		double weight=0;;
+		if(algo2==0)
+		{
+		 weight=1/(Signal*Signal);
+		}
+		if(algo2==1)
+		{
+			 weight=enterlist.get(i).getPie();
+		}
 	    //----------create weight list------
 		double newlat=lat*weight;
 		double newlot=lot*weight;
@@ -70,8 +79,12 @@ public void createresult()
      double sumlot=0;
      double sumhight=0;
      double sumweight=0;
+     Start a1=new Start();
+     int size=5;
+     if(size>weightlist.size()) {size=weightlist.size();}
      
-	for(int i=0;i<weightlist.size();i++)
+    
+	for(int i=0;i<size;i++)
 	{
 		
 		 sumlat=sumlat+weightlist.get(i).getLat();
@@ -92,8 +105,15 @@ public void createresult()
 	com.setId(enterlist.get(0).getId());
 	result.add(0,com);
 }
+public int getAlgo2() {
+	return algo2;
+}
+public void setAlgo2(int algo2) {
+	this.algo2 = algo2;
+}
 	
 
+////--------get and set-------
 
 
 

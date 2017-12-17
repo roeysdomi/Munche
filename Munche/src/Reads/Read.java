@@ -140,7 +140,7 @@ public class Read {
 		String line = null;
 		Scanner scanner = null;
 		int index = 0;
-		
+		int linecounter=1;
 		 ArrayList<Wifi>combcsv=new ArrayList<Wifi>();
         int counter=0;
 		while ((line = reader.readLine()) != null&&!line.equals("")) 
@@ -157,6 +157,7 @@ public class Read {
 				wifi1.setLat(g[2]);
 				wifi1.setLot(g[3]);
 				wifi1.sethight(g[4]);
+				wifi1.setLine(linecounter);
 				combcsv.add(counter++,wifi1);
 				
 				int z=0;
@@ -168,6 +169,7 @@ public class Read {
 					wifi2.setLat(g[2]);
 					wifi2.setLot(g[3]);
 					wifi2.sethight(g[4]);
+					wifi2.setLine(linecounter);
 					combcsv.add(counter++,wifi2);
 					
 					z=z+4;
@@ -188,10 +190,73 @@ public class Read {
 				wifi1.setLat(g[2]);
 				wifi1.setLot(g[3]);
 				wifi1.sethight(g[4]);
+				wifi1.setLine(linecounter);
 				combcsv.add(counter++,wifi1);
 			}
 			
+			linecounter++;
+		}
+		
+	
+		
+		reader.close();
+		return combcsv;
+		
+	}
+    public ArrayList<Wifi> ReadeNoGPSCsv() throws IOException
+    {
+    	BufferedReader reader = new BufferedReader(new FileReader(	path+csvfilename+".csv"));
+
+		// read file line by line
+		String line = null;
+		Scanner scanner = null;
+		int index = 0;
+		int countline=1;
+		 ArrayList<Wifi>combcsv=new ArrayList<Wifi>();
+        int counter=0;
+		while ((line = reader.readLine()) != null&&!line.equals("")) 
+		{
+		    Wifi wifi1=new Wifi();
+			String []g=line.split(",");
+			int amount=Integer.valueOf(g[5]);
+			if(amount!=1)
+			{
+				
+				wifi1.setMac(g[7]);
+				wifi1.setSignal(g[9]);
+				wifi1.setId(g[6]);
+				wifi1.setLine(countline);
+				combcsv.add(counter++,wifi1);
+				
+				int z=0;
+				for(int i=0;i<amount-1;i++)
+				{   Wifi wifi2=new Wifi();
+					wifi2.setMac(g[11+z]);
+					wifi2.setSignal(g[13+z]);
+					wifi2.setId(g[10]+z);
+					wifi2.setLine(countline);
+					combcsv.add(counter++,wifi2);
+					
+					z=z+4;
+					
+				}
+				
+				z=0;
+				
+				
+				
+			}
 			
+			if(amount==1)
+			{
+				wifi1.setMac(g[7]);
+				wifi1.setSignal(g[9]);
+				wifi1.setId(g[6]);
+				wifi1.setLine(countline);
+				combcsv.add(counter++,wifi1);
+			}
+			
+			countline++;
 		}
 		
 	

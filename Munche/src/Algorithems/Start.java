@@ -14,6 +14,7 @@ public class Start {
 	String path=System.getProperty("user.dir")+"\\";
 	String csvpath=System.getProperty("user.dir")+"\\csv\\";
 	public static int  choose;
+	public static int  limitmac;
 	public static Boolean failtesting=true;
 	
 	
@@ -124,7 +125,9 @@ public class Start {
 			        
 			        
 			        if(choose==6)
-			        {
+			        {  System.out.println("enter how much macs:");
+		        	    input=new Scanner(System.in);
+		        	    limitmac=input.nextInt();
 			        	 WriteTxt3 run=new WriteTxt3();
 			        	 run.createTest1List();
 			             run.WriteMacalgo();

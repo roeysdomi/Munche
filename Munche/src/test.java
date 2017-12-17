@@ -48,9 +48,16 @@ public class test {
         check.add(2,wifi3);
         Start ch=new Start();
         //WriteTxt3 run=new WriteTxt3();
-         ch.Start();
-        //Read re=new Read();
-        //re.setCsvfilename("check1");
+        // ch.Start();
+        Read re=new Read();
+        re.setCsvfilename("Nogps");
+        ArrayList<Wifi> check45=new ArrayList<>();
+       check45= re.ReadeNoGPSCsv();
+        System.out.println("ddede");
+        for(int i=0;i<check45.size();i++)
+        {
+        	System.out.println(check45.get(i).getMac()+" ,"+check45.get(i).getId()+" ,"+check45.get(i).getSignal()+" ,"+check45.get(i).getLine()+" ,");
+        }
        // re.convertcsvtotxtnew();
         //re.createnormalcsv();
         		
