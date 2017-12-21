@@ -14,8 +14,8 @@ public class Calculate2 {
 	double pi;
 	int input;
 	public double Calculate2(Wifi wifinput ,Wifi wifitrain)
-	{     double input=Integer.valueOf(wifinput.getSignal());
-		  double sig=Integer.valueOf(wifitrain.getSignal());
+	{     double input=Double.valueOf(wifinput.getSignal());
+		  double sig=Double.valueOf(wifitrain.getSignal());
 		  if(sig==-120) {diff=100;}
 		  if(sig!=-120)
 		  {

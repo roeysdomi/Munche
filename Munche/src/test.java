@@ -49,7 +49,7 @@ public class test {
         Start ch=new Start();
         //WriteTxt3 run=new WriteTxt3();
         // ch.Start();
-        Read re=new Read();
+       /* Read re=new Read();
         re.setCsvfilename("Nogps");
         ArrayList<Wifi> check45=new ArrayList<>();
        check45= re.ReadeNoGPSCsv();
@@ -59,7 +59,9 @@ public class test {
         	System.out.println(check45.get(i).getMac()+" ,"+check45.get(i).getId()+" ,"+check45.get(i).getSignal()+" ,"+check45.get(i).getLine()+" ,");
         }
        // re.convertcsvtotxtnew();
-        //re.createnormalcsv();
+        //re.createnormalcsv();*/
+       ch.Start();
+        
         		
 	}
 	

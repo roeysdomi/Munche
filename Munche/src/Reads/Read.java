@@ -96,10 +96,10 @@ public class Read {
 		 * take csv file and convert it to txt file.
 		 */
 		
-		File file1=new File(path+csvfilename+".txt");
+		File file1=new File(path+"\\tempfiles\\"+csvfilename+".txt");
 		file1.createNewFile();
 		FileWriter writer= new FileWriter(file1);
-	    Scanner scanner = new Scanner(new File(path+csvfilename+".csv"));
+	    Scanner scanner = new Scanner(new File(path+"\\tempfiles\\"+csvfilename+".csv"));
 	    scanner.useDelimiter(",");
 
 	    while(scanner.hasNext()){
@@ -143,7 +143,7 @@ public class Read {
 		int linecounter=1;
 		 ArrayList<Wifi>combcsv=new ArrayList<Wifi>();
         int counter=0;
-		while ((line = reader.readLine()) != null&&!line.equals("")) 
+		while ((line = reader.readLine()) != null&&!line.equals("")&&!line.contains("SSID")) 
 		{
 		    Wifi wifi1=new Wifi();
 			String []g=line.split(",");
@@ -214,7 +214,7 @@ public class Read {
 		int countline=1;
 		 ArrayList<Wifi>combcsv=new ArrayList<Wifi>();
         int counter=0;
-		while ((line = reader.readLine()) != null&&!line.equals("")) 
+		while ((line = reader.readLine()) != null&&!line.equals("")&&!line.contains("SSID")) 
 		{
 		    Wifi wifi1=new Wifi();
 			String []g=line.split(",");
@@ -263,6 +263,41 @@ public class Read {
 		
 		reader.close();
 		return combcsv;
+		
+	}
+
+    public int[] ReadTocompare() throws IOException
+    {  int [] loc=new int [3];
+    	BufferedReader reader = new BufferedReader(new FileReader(	path+csvfilename+".csv"));
+
+		// read file line by line
+		String line = null;
+		Scanner scanner = null;
+		int index = 0;
+		int countline=0;
+		 ArrayList<Wifi>combcsv=new ArrayList<Wifi>();
+        int counter=0;
+        double lat=0;
+		double lot=0;
+		double hight=0;
+		while ((line = reader.readLine()) != null&&!line.equals("")&&!line.contains("SSID")) 
+		{     countline++;
+		    Wifi wifi1=new Wifi();
+			String []g=line.split(",");
+			 lat=lat+Double.valueOf(g[0]);
+			 lot=lot+Double.valueOf(g[1]);
+			 hight=hight+Double.valueOf(g[2]);
+			
+		}
+		
+	    System.out.println(countline);
+		System.out.println(lat+","+lot+","+hight);
+		lat=lat/countline;
+		lot=lot/countline;
+		hight=hight/countline;
+		System.out.println(lat+","+lot+","+hight);
+		reader.close();
+		return loc;
 		
 	}
 

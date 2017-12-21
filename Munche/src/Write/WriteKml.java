@@ -40,7 +40,7 @@ public class WriteKml {
 		a1.setLoc(path+"filterd.txt");
 		ArrayList<String>temp=a1.converttocsv2();
 		///--------יצירת מסמך KML---
-		File file1=new File(path+"googlearth-ver1.kml");
+		File file1=new File(path+"\\OUTPUT\\"+"googlearth-ver1.kml");
 		file1.createNewFile();
 		FileWriter writer=new FileWriter(file1);
 		////--------------פתיח--------------
@@ -116,7 +116,7 @@ public class WriteKml {
 		Read a1=new Read();
 	    a1.setCsvfilename("filterd");
 		a1.convertcsvtotxt();
-		a1.setLoc(path+"filterd.txt");
+		a1.setLoc(path+"\\tempfiles\\"+"filterd.txt");
 		ArrayList<String>temp=a1.converttocsv2();
 	     
 		///------------כתיבת  הKML
@@ -141,7 +141,7 @@ public class WriteKml {
 		}
 	   
 		//-------- print and save
-		kml.marshal(new File(path+"googlearth-ver2.kml"));
+		kml.marshal(new File(path+"\\OUTPUT\\"+"googlearth-ver2.kml"));
 		
 	}
     

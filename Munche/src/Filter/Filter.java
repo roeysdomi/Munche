@@ -10,7 +10,7 @@ import Wifi.Wifi;
 
 public class Filter {
 	
-	String path=System.getProperty("user.dir")+"\\";
+	String path=System.getProperty("user.dir")+"\\tempfiles\\";
 	String csvpath=System.getProperty("user.dir")+"\\csv\\";
 	public ArrayList<Wifi> Filter_list_temp;
 	public  String  lat1;
@@ -36,7 +36,7 @@ public class Filter {
 		file2.createNewFile();
 		FileWriter writer=new FileWriter(file2);
 		///-----convert orgnized-----
-		a1.convertcsvtotxt("orgnized");
+		a1.convertcsvtotxt("\\tempfiles\\orgnized");
 		//----------readfrom-------------
 		File file1=new File(path+"orgnized.txt");
 		Scanner sc=new Scanner(file1);

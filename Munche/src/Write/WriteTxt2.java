@@ -16,7 +16,7 @@ import Wifi.CompareWifi;
 import Wifi.Wifi;
 
 public class WriteTxt2 {
-	String path=System.getProperty("user.dir")+"\\";
+	String path=System.getProperty("user.dir")+"\\tempfiles\\";
 	String csvpath=System.getProperty("user.dir")+"\\csv\\";
 	
 	public ArrayList<Wifi> ListTest1;
@@ -206,7 +206,7 @@ public class WriteTxt2 {
 		 */
 	
 	    //--------------יצירת מסמך 
-	    File file2 = new File("orgnized.csv");
+	    File file2 = new File(path+"orgnized.csv");
 	    file2.createNewFile();
 	    FileWriter writer = new FileWriter(file2); 
 	    //----------------------------------

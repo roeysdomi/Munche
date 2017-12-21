@@ -23,82 +23,99 @@ public class WriteTxt4 {
 	
 	
 	
-	public WriteTxt4() throws IOException
-	{    Read re =new Read();
-	     re.setCsvfilename("Nogps");
-		targetlist=new ArrayList<>(re.ReadeNoGPSCsv());
-		 Read re2 =new Read();
-	     re2.setCsvfilename("check1");
-	     traininglist=new ArrayList<>(re2.ReadeCombCsv());
-	    this.temp_targetlist=new ArrayList<>();
-	 	 this.temp_traininglist=new ArrayList<>();
-		
-	}
-	public void WriteLiner() throws IOException
-	{   int writecounter=0;
-		File file2 = new File(path+"MacByCalc_2.csv");
-	    file2.createNewFile();
-	    FileWriter writer = new FileWriter(file2); 
-		double weight=1;
-		double pi;
-		int targetlastline=targetlist.get(targetlist.size()-1).getLine();
-		int traininglastline=traininglist.get(traininglist.size()-1).getLine();
-		for(int i=0;i< targetlastline;i++)
-		{   
-			if(i==53)
-		      {System.out.println("pie");}
-			this.temp_pielist=new ArrayList<>();
-			create_temp_target(i+1);			
-			
-					
-				
-				for(int z=0;z<traininglastline;z++)
-				{    
-					create_temp_training(z+1);
-				    
-				      double pie=createpie();
-				      
-				      setpie(pie);
-				      Wifi wifi1=new Wifi();
-				      wifi1=temp_traininglist.get(0);
-				      temp_pielist.add(wifi1);
-				    
-				      if(pie==1)
-				      {System.out.println("pie");}
-				      System.out.println("this is i:"+i+"this is z:"+z+"this is pie:"+pie);
-				     
-				       
-				}
-				if(i==53)
-			      {System.out.println("pie");}
-				Sort so=new Sort();
-				so.setCsv2(temp_pielist);
-				temp_pielist=so.SortPie();
-				 Calculate1 calc=new Calculate1(temp_pielist);
-			      calc.setAlgo2(1);
-			      calc.runCalculate1();
-			     writecounter++;
-			      writer.write(calc.result.get(0).getLat()+","+calc.result.get(0).getLot()+","+calc.result.get(0).getHight()+","+temp_targetlist.size()+",");
-			      for(int f=0;f<temp_targetlist.size();f++)
-			      {
-			      writer.write(temp_targetlist.get(f).getId()+","+temp_targetlist.get(f).getMac()+","+temp_targetlist.get(f).getSignal()+",");
-			      }
-			      writer.write(System.lineSeparator());
-				System.out.println("checl");
-				
-				
-			
-			
+public WriteTxt4() throws IOException
+{    
+	Read re =new Read();
+	File folder = new File(System.getProperty("user.dir")+"\\INPUT\\target\\");
+	File[] listOfFiles = folder.listFiles();
+	String g="";
+	for (File file : listOfFiles) {
+		if (file.isFile())
+		{
+	         g=file.getName();
 		}
-		writer.close();
-		System.out.println(writecounter);
+	}
+       g=g.replaceAll(".csv", "");
+       File folder2 = new File(System.getProperty("user.dir")+"\\INPUT\\nogps\\");
+   	File[] listOfFiles2 = folder2.listFiles();
+   	String d="";
+   	for (File file : listOfFiles2) {
+   		if (file.isFile())
+   		{
+   	         d=file.getName();
+   		}
+   	}
+          d=d.replaceAll(".csv", "");
+          Read re2 =new Read();
+     re.setCsvfilename("\\INPUT\\target\\"+g);
+     re2.setCsvfilename("\\INPUT\\nogps\\"+d);
+	targetlist=new ArrayList<>(re2.ReadeNoGPSCsv());
+     traininglist=new ArrayList<>(re.ReadeCombCsv());
+    this.temp_targetlist=new ArrayList<>();
+ 	 this.temp_traininglist=new ArrayList<>();
+	
+}
+public void WriteLiner() throws IOException
+{   int writecounter=0;
+	File file2 = new File(path+"\\OUTPUT\\"+"ALGO2_result.csv");
+    file2.createNewFile();
+    FileWriter writer = new FileWriter(file2); 
+	double weight=1;
+	double pi;
+	int targetlastline=targetlist.get(targetlist.size()-1).getLine();
+	int traininglastline=traininglist.get(traininglist.size()-1).getLine();
+	for(int i=0;i< targetlastline;i++)
+	{   
 		
+		this.temp_pielist=new ArrayList<>();
+		create_temp_target(i+1);			
 		
+				
+			
+			for(int z=0;z<traininglastline;z++)
+			{    
+				create_temp_training(z+1);
+			    
+			      double pie=createpie();
+			      
+			      setpie(pie);
+			      Wifi wifi1=new Wifi();
+			      wifi1=temp_traininglist.get(0);
+			      temp_pielist.add(wifi1);
+			    
+			    
+			     
+			       
+			}
+			
+			Sort so=new Sort();
+			so.setCsv2(temp_pielist);
+			temp_pielist=so.SortPie();
+			 Calculate1 calc=new Calculate1(temp_pielist);
+		      calc.setAlgo2(1);
+		      calc.runCalculate1();
+		     writecounter++;
+		      writer.write(calc.result.get(0).getLat()+","+calc.result.get(0).getLot()+","+calc.result.get(0).getHight()+","+temp_targetlist.size()+",");
+		      for(int f=0;f<temp_targetlist.size();f++)
+		      {
+		      writer.write(temp_targetlist.get(f).getId()+","+temp_targetlist.get(f).getMac()+","+temp_targetlist.get(f).getSignal()+",");
+		      }
+		      writer.write(System.lineSeparator());
 		
+			
+			
 		
 		
 	}
-	public double createpie()
+	writer.close();
+	
+	
+	
+	
+	
+	
+}
+public double createpie()
 	{    double pie=1;
 		 for(int j=0;j<temp_targetlist.size();j++)
 	      {
@@ -117,7 +134,7 @@ public class WriteTxt4 {
 	    	      
 	    	   }
 	      }
-		 System.out.println(pie);
+		
 		 return pie;
 	}
 public void create_temp_target(int z)
@@ -216,7 +233,7 @@ public static void main (String[]args) throws IOException
 	run.temp_traininglist.add(wifi5);
 	run.temp_traininglist.add(wifi6);*/
 	run.WriteLiner();
-	System.out.println("s");
+
 
 
 }

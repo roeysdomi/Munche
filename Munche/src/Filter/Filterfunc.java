@@ -21,10 +21,10 @@ public class Filterfunc {
 	public void convertcsvtotxt(String fileloc) throws IOException
 	{ /*  ממיר קובץ סיאססויי למסמך טקסט(צריך להכניס מיקום) בסטרינג.*/
 		
-		File file1=new File(path+fileloc+".txt");
+		File file1=new File(path+"\\tempfiles\\orgnized"+".txt");
 		file1.createNewFile();
 		FileWriter writer= new FileWriter(file1);
-	    Scanner scanner = new Scanner(new File(path+fileloc+".csv"));
+	    Scanner scanner = new Scanner(new File(path+"\\tempfiles\\orgnized"+".csv"));
 	    scanner.useDelimiter(",");
 
 	    while(scanner.hasNext()){

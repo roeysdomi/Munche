@@ -55,14 +55,21 @@ public class WriteTxt3 {
 		 * Array list(Wifi element) which will used int the next function.
 		 */
 		
-		
+		Read re =new Read();
+		File folder = new File(System.getProperty("user.dir")+"\\INPUT\\target\\");
+		File[] listOfFiles = folder.listFiles();
+		String g="";
+		for (File file : listOfFiles) {
+			if (file.isFile())
+			{
+		         g=file.getName();
+			}
+		}
+	       g=g.replaceAll(".csv", "");
 		
         Read readtext1=new Read();
-        readtext1.setCsvfilename("check1");
-        //readtext1.convertcsvtotxt();
-        //readtext1.setLoc(path+"test1.txt");
-        
-        //ListTest1=readtext1.converttocsv();
+        readtext1.setCsvfilename("\\INPUT\\target\\"+g);
+       
        ListLiner=readtext1.ReadeCombCsv();
        System.out.println("dd");
 	}
@@ -83,6 +90,10 @@ public class WriteTxt3 {
 		    tempcount=new ArrayList<Wifi>();
 	 		Wifi dead=new Wifi();
 	 		dead.Wifikill("1");
+	 		if(i==50)
+	 		{
+	 			System.out.println("line 95");
+	 		}
 			///---------csv------
 		    Start a1=new Start();
 		    
@@ -101,8 +112,10 @@ public class WriteTxt3 {
 				 CompareWifi com=new CompareWifi(ListLiner);
                     				 
 				
-	             if(a1.choose==6) 
-	             {if(com.MacComperator(i, z)) {tempcount.add(ListLiner.get(z));ListLiner.set(z,dead );}};
+	            
+	            if(com.MacComperator(i, z)) 
+	               {tempcount.add(ListLiner.get(z));ListLiner.set(z,dead );}
+	             
 	            
 	             
 			           
@@ -144,7 +157,7 @@ public class WriteTxt3 {
 		 */
 	
 	    //--------------יצירת מסמך 
-	    File file2 = new File("MacByCalc_1.csv");
+	    File file2 = new File(path+"\\OUTPUT\\ALGO1_result.csv");
 	    file2.createNewFile();
 	    FileWriter writer = new FileWriter(file2); 
 	    //----------------------------------
@@ -197,7 +210,7 @@ public class WriteTxt3 {
 		      }  
 	      }
 	       ///////////////////////////////////////////////////////
-	          System.out.println("ddw");
+	        
 			    writer.close();
 			    int rest=100-counter;
 			    for( int r=0;r<=rest;r++)

@@ -80,7 +80,7 @@ public void createresult()
      double sumhight=0;
      double sumweight=0;
      Start a1=new Start();
-     int size=3;
+     int size=a1.limitmac;
      if(size>weightlist.size()) {size=weightlist.size();}
      
     
