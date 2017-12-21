@@ -17,7 +17,11 @@ public class Start {
 	public static int  limitmac;
 	public static Boolean failtesting=true;
 	
+<<<<<<< HEAD
 	//////////////
+=======
+	
+>>>>>>> branch 'master' of https://github.com/roeysdomi/Munche.git
 	
 	
 	public void Start() throws IOException
