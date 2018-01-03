@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import Filter.Filter;
+import Filter.NewFilter;
 import Wifi.Wifi;
 import Write.WriteKml;
 import Write.WriteTxt2;
@@ -17,17 +18,18 @@ public class Start {
 	public static int  limitmac;
 	public static Boolean failtesting=true;
 	
-<<<<<<< HEAD
-	//////////////
-=======
 	
->>>>>>> branch 'master' of https://github.com/roeysdomi/Munche.git
-	
+	/**
+	 * not in use anymore 
+	 * this was the class that run everything
+	 * in matala0 and 1.
+	 * @throws IOException
+	 */
 	
 	public void Start() throws IOException
 	{
 		 /*  ההפוקנציה שמאחדת בין כל התהליכים ובעצם מתחילה הכל.*/
-				Filter filter1=new Filter();
+				NewFilter filter1=new NewFilter();
 			    
 				///-------איחוד קבצי CSV----
 		    //    Writetxt writetxt=new Writetxt();
@@ -121,7 +123,8 @@ public class Start {
 					       /////--------יצירת KML-----
 					       if(choose!=5)
 					       {
-					       WriteKml kml=new WriteKml();
+					    	   
+					       WriteKml kml=new WriteKml(filter1.filter_list_temp);
 					       
 					       kml.createkml2();
 					       }
